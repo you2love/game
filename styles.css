@@ -1,0 +1,404 @@
+/* 基础样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f7fa;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* 容器布局 - 双栏布局 */
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+/* 左侧导航树样式 */
+.sidebar {
+    width: 250px;
+    background: linear-gradient(160deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 3px 0 10px rgba(0,0,0,0.1);
+    z-index: 10;
+    overflow-y: auto;
+}
+
+.sidebar h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.nav-tree {
+    list-style: none;
+    flex-grow: 1;
+}
+
+.nav-tree li {
+    margin-bottom: 0.5rem;
+}
+
+.nav-tree a {
+    display: block;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.nav-tree a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    transform: translateX(5px);
+}
+
+.nav-tree li.active a {
+    background-color: rgba(255, 255, 255, 0.25);
+    color: white;
+    font-weight: bold;
+}
+
+/* 主要内容区域 */
+.main-content {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    background-color: #f5f7fa;
+}
+
+.main-content header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.main-content h1 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.main-content p {
+    color: #7f8c8d;
+}
+
+.welcome-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.welcome-section h2 {
+    color: #667eea;
+    margin-bottom: 1.5rem;
+}
+
+.welcome-section ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.welcome-section li {
+    margin-bottom: 0.8rem;
+}
+
+/* 公司详情页面样式 */
+.company-details {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.company-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.info-item {
+    background: white;
+    padding: 1.8rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid #667eea;
+}
+
+.info-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.info-item h3 {
+    color: #667eea;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.info-item p {
+    color: #555;
+    line-height: 1.7;
+}
+
+/* 优点和缺点特殊样式 */
+.info-item.positive {
+    border-left: 4px solid #28a745;
+}
+
+.info-item.positive h3 {
+    color: #28a745;
+}
+
+.info-item.negative {
+    border-left: 4px solid #dc3545;
+}
+
+.info-item.negative h3 {
+    color: #dc3545;
+}
+
+/* 收入分段样式 */
+.income-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.income-item {
+    background: white;
+    padding: 1.8rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid #667eea;
+}
+
+.income-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.income-item h3 {
+    color: #667eea;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.income-item p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 0.6rem;
+}
+
+/* 地区分段样式 */
+.region-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.region-item {
+    background: white;
+    padding: 1.8rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid #667eea;
+}
+
+.region-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.region-item h3 {
+    color: #667eea;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.region-item p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 0.6rem;
+}
+
+/* 城乡分段样式 */
+.urban-rural-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.urban-rural-item {
+    background: white;
+    padding: 1.8rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid #667eea;
+}
+
+.urban-rural-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.urban-rural-item h3 {
+    color: #667eea;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.urban-rural-item p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 0.6rem;
+}
+
+/* 年龄分段样式 */
+.age-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.age-item {
+    background: white;
+    padding: 1.8rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid #667eea;
+}
+
+.age-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.age-item h3 {
+    color: #667eea;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.age-item p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 0.6rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .nav-tree {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .nav-tree li {
+        margin-bottom: 0;
+    }
+
+    .nav-tree a {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    .main-content {
+        padding: 1rem;
+    }
+
+    .company-info-grid {
+        grid-template-columns: 1fr; /* 在小屏幕上改为单列 */
+    }
+    
+    .income-grid {
+        grid-template-columns: 1fr; /* 在小屏幕上改为单列 */
+    }
+    
+    .region-grid {
+        grid-template-columns: 1fr; /* 在小屏幕上改为单列 */
+    }
+    
+    .urban-rural-grid {
+        grid-template-columns: 1fr; /* 在小屏幕上改为单列 */
+    }
+    
+    .age-grid {
+        grid-template-columns: 1fr; /* 在小屏幕上改为单列 */
+    }
+
+    .welcome-section {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-tree {
+        flex-direction: column;
+    }
+
+    .main-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .info-item {
+        padding: 1.2rem;
+    }
+    
+    .income-item {
+        padding: 1.2rem;
+    }
+    
+    .region-item {
+        padding: 1.2rem;
+    }
+    
+    .urban-rural-item {
+        padding: 1.2rem;
+    }
+    
+    .age-item {
+        padding: 1.2rem;
+    }
+}
+
+/* 平滑滚动 */
+html {
+    scroll-behavior: smooth;
+}
