@@ -3,230 +3,515 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>游戏种类分析 - 2026年趋势与深度洞察</title>
+    <title>游戏分类 - 趋势与深度洞察</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="container">
-        <!-- 左侧导航树 -->
+<button id="sidebarToggle" class="sidebar-toggle" title="切换导航栏">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+    </button>
+
+<div class="container"><!-- 左侧导航树 -->
         <nav class="sidebar">
-            <h2>游戏公司列表</h2>
+            <h2>游戏产业全景</h2>
             <ul class="nav-tree">
-                <li><a href="index.html">首页</a></li>
-                <li><a href="tencent.html">腾讯游戏</a></li>
-                <li><a href="netease.html">网易游戏</a></li>
-                <li><a href="miyou.html">米哈游</a></li>
-                <li><a href="bilibili.html">哔哩哔哩游戏</a></li>
-                <li><a href="perfectworld.html">完美世界</a></li>
-                <li><a href="lilith.html">莉莉丝游戏</a></li>
-                <li><a href="hypergryph.html">鹰角网络</a></li>
-                <li><a href="dupaper.html">叠纸游戏</a></li>
-                <li><a href="koluo.html">库洛游戏</a></li>
-                <li><a href="xindong.html">心动网络</a></li>
-                <li><a href="game-classification.html">游戏分类与发展目标</a></li>
-                <li><a href="player-audience.html">玩家受众分析</a></li>
-                <li><a href="social-impact.html">社会事件影响分析</a></li>
-                <li class="active"><a href="game-types.html">游戏种类分析</a></li>
-                <li><a href="policy-impact.html">政策影响分析</a></li>
+                <li><a href="index.html">产业概览</a></li>
+                
+                <li class="sub-item"><a href="tencent.html">腾讯游戏</a></li>
+                <li class="sub-item"><a href="netease.html">网易游戏</a></li>
+                <li class="sub-item"><a href="miyou.html">米哈游</a></li>
+                <li class="sub-item"><a href="xindong.html">心动网络</a></li>
+                <li class="sub-item"><a href="bilibili.html">哔哩哔哩游戏</a></li>
+                <li class="sub-item"><a href="lilith.html">莉莉丝游戏</a></li>
+                <li class="sub-item"><a href="hypergryph.html">鹰角网络</a></li>
+                <li class="sub-item"><a href="koluo.html">库洛游戏</a></li>
+                <li class="sub-item"><a href="perfectworld.html">完美世界</a></li>
+                <li class="sub-item"><a href="dupaper.html">叠纸游戏</a></li>
+                
+                <li class="sub-item"><a href="cmge.html">掌趣科技</a></li>
+                <li class="sub-item"><a href="funship.html">蜂巢游戏</a></li>
+                <li class="sub-item"><a href="dianjoy.html">点joy</a></li>
+                <li class="sub-item"><a href="youzu.html">游族网络</a></li>
+
+                <li class="sub-item active"><a href="game-types.html">游戏分类</a></li>
+                <li class="sub-item"><a href="player-audience.html">玩家分析</a></li>
+                <li class="sub-item"><a href="tech-analysis.html">技术栈与AI影响分析</a></li>
+                <li class="sub-item"><a href="policy-impact.html">政策影响分析</a></li>
+                <li class="sub-item"><a href="social-impact.html">社会影响分析</a></li>
+                <li class="sub-item"><a href="micro-dev-strategy.html">微型游戏公司生存策略</a></li>
             </ul>
         </nav>
 
         <!-- 右侧主要内容区 -->
         <main class="main-content">
             <header>
-                <h1>游戏种类分析</h1>
-                <p>深入分析各类游戏的特点、机制与发展趋势</p>
+                <h1>游戏分类</h1>
+                <p>游戏类型特征与发展趋势</p>
             </header>
-            
-            <section class="game-types-analysis">
-                <h2>游戏种类详细分析</h2>
-                
-                <div class="types-grid">
-                    <div class="type-item">
-                        <h3>动作游戏 (Action Games)</h3>
-                        <p><strong>核心特点：</strong>强调反应速度、手眼协调和操作技巧，通常包含战斗、追逐或平台跳跃元素。</p>
-                        <p><strong>主要机制：</strong>实时战斗系统、连击系统、闪避机制、技能释放</p>
-                        <p><strong>代表作品：</strong>《鬼泣》、《战神》、《忍者龙剑传》、《塞尔达传说》</p>
-                        <p><strong>玩家体验：</strong>快节奏、刺激感、成就感</p>
-                        <p><strong>发展趋势：</strong>融合RPG元素、开放世界设计、电影化叙事</p>
+
+            <section class="game-type-analysis">
+                <h2>主要游戏类型对比</h2>
+
+                <table class="game-type-table">
+                    <thead>
+                        <tr>
+                            <th>游戏类型</th>
+                            <th>核心特点</th>
+                            <th>代表作品</th>
+                            <th>目标玩家</th>
+                            <th>发展趋势</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>动作游戏</td>
+                            <td>反应速度，战斗元素</td>
+                            <td>《鬼泣》《战神》《塞尔达传说》</td>
+                            <td>追求刺激，快节奏体验</td>
+                            <td>RPG融合，开放世界，电影化叙事</td>
+                        </tr>
+                        <tr>
+                            <td>冒险游戏</td>
+                            <td>故事叙述，探索解谜</td>
+                            <td>《神秘海域》《古墓丽影》《塞尔达传说》</td>
+                            <td>喜欢探索，重视叙事</td>
+                            <td>互动电影，多结局，VR体验</td>
+                        </tr>
+                        <tr>
+                            <td>RPG</td>
+                            <td>角色成长，决策影响</td>
+                            <td>《最终幻想》《巫师》《上古卷轴》</td>
+                            <td>深度内容，角色成长，沉浸感</td>
+                            <td>开放世界，动态剧情，社交融合</td>
+                        </tr>
+                        <tr>
+                            <td>策略游戏</td>
+                            <td>思维规划，战略考验</td>
+                            <td>《文明》《星际争霸》《全面战争》</td>
+                            <td>思考规划，深度策略</td>
+                            <td>AI辅助，云游戏，跨平台对战</td>
+                        </tr>
+                        <tr>
+                            <td>模拟游戏</td>
+                            <td>现实活动模拟</td>
+                            <td>《模拟人生》《微软飞行模拟器》《星露谷物语》</td>
+                            <td>体验生活，追求真实感</td>
+                            <td>高精度模拟，VR/AR，AI驱动</td>
+                        </tr>
+                        <tr>
+                            <td>体育游戏</td>
+                            <td>体育运动模拟</td>
+                            <td>《FIFA》《NBA 2K》《实况足球》</td>
+                            <td>体育爱好者，真实竞技</td>
+                            <td>实时数据，电竞化，VR体验</td>
+                        </tr>
+                        <tr>
+                            <td>竞速游戏</td>
+                            <td>载具竞速体验</td>
+                            <td>《极品飞车》《GT赛车》《F1》</td>
+                            <td>速度感，驾驶体验</td>
+                            <td>真实物理，多人竞速，VR驾驶</td>
+                        </tr>
+                        <tr>
+                            <td>益智游戏</td>
+                            <td>解谜逻辑思维</td>
+                            <td>《俄罗斯方块》《纪念碑谷》《数独》</td>
+                            <td>动脑解谜，各年龄段</td>
+                            <td>移动平台，休闲化，教育结合</td>
+                        </tr>
+                        <tr>
+                            <td>音乐/节奏</td>
+                            <td>音乐节拍操作</td>
+                            <td>《吉他英雄》《太鼓达人》《节奏光剑》</td>
+                            <td>音乐爱好者，节奏感</td>
+                            <td>VR体验，AI作曲，社交互动</td>
+                        </tr>
+                        <tr>
+                            <td>沙盒游戏</td>
+                            <td>高自由度创造</td>
+                            <td>《我的世界》《GTA》《塞尔达：旷野之息》</td>
+                            <td>自由度，创造性，开放性</td>
+                            <td>程序生成，AI助手，跨平台协作</td>
+                        </tr>
+                        <tr>
+                            <td>MOBA</td>
+                            <td>团队合作，策略操作</td>
+                            <td>《英雄联盟》《DOTA2》《王者荣耀》</td>
+                            <td>竞技性，团队合作，策略深度</td>
+                            <td>移动化，电竞产业化，AI辅助</td>
+                        </tr>
+                        <tr>
+                            <td>大逃杀</td>
+                            <td>生存竞争，随机性</td>
+                            <td>《绝地求生》《堡垒之夜》《和平精英》</td>
+                            <td>紧张感，随机性，生存挑战</td>
+                            <td>跨平台联机，创意模式，社交功能</td>
+                        </tr>
+                        <tr>
+                            <td>休闲/卡牌</td>
+                            <td>轻松娱乐，策略收集</td>
+                            <td>《炉石传说》《阴阳师》《皇室战争》《刀塔传奇》</td>
+                            <td>碎片时间，策略思考，收集养成</td>
+                            <td>竞技化、IP联动、跨平台、社交融合</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="chart-container">
+                    <h3>游戏类型市场份额分布</h3>
+                    <div class="pie-chart">
+                        <div class="pie-chart-visual"></div>
+                        <div class="pie-chart-legend">
+                            <div class="pie-chart-legend-item">
+                                <span class="pie-chart-legend-color" style="background-color: var(--primary-color);"></span>
+                                <span>休闲/卡牌 (30%)</span>
+                            </div>
+                            <div class="pie-chart-legend-item">
+                                <span class="pie-chart-legend-color" style="background-color: var(--secondary-color);"></span>
+                                <span>MOBA (15%)</span>
+                            </div>
+                            <div class="pie-chart-legend-item">
+                                <span class="pie-chart-legend-color" style="background-color: var(--accent-color);"></span>
+                                <span>RPG (12%)</span>
+                            </div>
+                            <div class="pie-chart-legend-item">
+                                <span class="pie-chart-legend-color" style="background-color: var(--warning-color);"></span>
+                                <span>其他 (18%)</span>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="type-item">
-                        <h3>冒险游戏 (Adventure Games)</h3>
-                        <p><strong>核心特点：</strong>注重故事叙述、探索发现和解谜，玩家通过探索环境推进剧情。</p>
-                        <p><strong>主要机制：</strong>剧情分支、物品收集与使用、环境互动、对话选择</p>
-                        <p><strong>代表作品：</strong>《神秘海域》、《古墓丽影》、《塞尔达传说》、《猴岛小英雄》</p>
-                        <p><strong>玩家体验：</strong>沉浸感、探索乐趣、故事满足感</p>
-                        <p><strong>发展趋势：</strong>互动电影化、多结局设计、VR体验</p>
+                    <p class="chart-caption">移动游戏占75%，其中休闲/卡牌类占比最高</p>
+                </div>
+            </section>
+
+            <section class="casual-card-detailed">
+                <h2>休闲/卡牌游戏详解</h2>
+
+                <div class="detail-intro">
+                    <p>休闲/卡牌游戏是目前移动游戏市场中占比最高的类型，具有易上手、碎片化、社交性强等特点。这类游戏通常不需要长时间投入，适合在碎片时间进行娱乐，同时具有策略性和收集养成要素。</p>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h3>核心特点</h3>
+                        <ul>
+                            <li><strong>低门槛易上手：</strong>操作简单，新手引导完善，适合各年龄段玩家</li>
+                            <li><strong>碎片化体验：</strong>单局时间短，随时随地可以玩</li>
+                            <li><strong>策略与运气并存：</strong>既需要策略思考，也有随机性带来惊喜</li>
+                            <li><strong>收集养成要素：</strong>卡牌/角色收集、升级、强化等玩法</li>
+                            <li><strong>强社交属性：</strong>好友互动、公会系统、排行榜竞争</li>
+                        </ul>
                     </div>
-                    
-                    <div class="type-item">
-                        <h3>角色扮演游戏 (RPG - Role-Playing Games)</h3>
-                        <p><strong>核心特点：</strong>玩家扮演特定角色，通过决策影响角色成长和故事走向，强调角色发展。</p>
-                        <p><strong>主要机制：</strong>经验值系统、属性成长、技能树、装备系统、等级提升</p>
-                        <p><strong>代表作品：</strong>《最终幻想》、《巫师》、《上古卷轴》、《女神异闻录》</p>
-                        <p><strong>玩家体验：</strong>角色成长感、故事深度、个性化体验</p>
-                        <p><strong>发展趋势：</strong>开放世界、动态剧情、社交元素融合</p>
+
+                    <div class="feature-item">
+                        <h3>目标玩家群体</h3>
+                        <ul>
+                            <li><strong>上班族/学生：</strong>利用碎片时间娱乐</li>
+                            <li><strong>轻度玩家：</strong>不喜欢复杂操作，追求轻松体验</li>
+                            <li><strong>策略爱好者：</strong>喜欢思考组合和搭配</li>
+                            <li><strong>收集控：</strong>喜欢收集各类卡牌/角色</li>
+                            <li><strong>社交玩家：</strong>喜欢与好友互动竞技</li>
+                        </ul>
                     </div>
-                    
-                    <div class="type-item">
-                        <h3>策略游戏 (Strategy Games)</h3>
-                        <p><strong>核心特点：</strong>考验玩家的思维能力、规划能力和决策能力，分为即时战略和回合制策略。</p>
-                        <p><strong>主要机制：</strong>资源管理、单位控制、战术布局、科技树发展</p>
-                        <p><strong>代表作品：</strong>《文明》系列、《星际争霸》、《全面战争》、《火焰纹章》</p>
-                        <p><strong>玩家体验：</strong>思考乐趣、战术成就感、长期规划</p>
-                        <p><strong>发展趋势：</strong>AI辅助、云游戏、跨平台对战</p>
+                </div>
+
+                <div class="game-examples">
+                    <h3>经典实例游戏</h3>
+
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h4>《炉石传说》</h4>
+                            <span class="example-tag">TCG集换式卡牌</span>
+                        </div>
+                        <div class="example-content">
+                            <p><strong>游戏简介：</strong>暴雪出品的集换式卡牌游戏，基于魔兽世界世界观。玩家构建30张卡组的牌组，通过回合制对战击败对手。</p>
+                            <p><strong>核心玩法：</strong>资源管理（法力水晶）、卡牌使用、战术决策。每回合根据法力值消耗卡牌，策略性强。</p>
+                            <p><strong>成功要素：</strong>平衡的卡组设计、随机性机制、持续更新扩展包、电竞赛事体系。</p>
+                        </div>
                     </div>
-                    
-                    <div class="type-item">
-                        <h3>模拟游戏 (Simulation Games)</h3>
-                        <p><strong>核心特点：</strong>模拟现实世界活动，让玩家体验不同职业或生活方式，追求真实感。</p>
-                        <p><strong>主要机制：</strong>物理引擎、经济系统、时间流逝、真实规则</p>
-                        <p><strong>代表作品：</strong>《模拟人生》、《微软飞行模拟器》、《城市：天际线》、《星露谷物语》</p>
-                        <p><strong>玩家体验：</strong>放松感、创造乐趣、真实体验</p>
-                        <p><strong>发展趋势：</strong>高精度模拟、VR/AR技术、AI驱动</p>
+
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h4>《阴阳师》</h4>
+                            <span class="example-tag">和风回合制卡牌</span>
+                        </div>
+                        <div class="example-content">
+                            <p><strong>游戏简介：</strong>网易开发的和风回合制卡牌RPG，以日本平安时代为背景。玩家收集式神（卡牌角色），组成阵容进行战斗。</p>
+                            <p><strong>核心玩法：</strong>式神收集与养成、阵容搭配、回合制策略战斗。强调角色培养和组合搭配。</p>
+                            <p><strong>成功要素：</strong>精美美术设计、丰富的IP联动活动、强社交属性、持续内容更新。</p>
+                        </div>
                     </div>
-                    
-                    <div class="type-item">
-                        <h3>体育游戏 (Sports Games)</h3>
-                        <p><strong>核心特点：</strong>模拟真实体育运动，提供竞技体验，强调技巧和策略。</p>
-                        <p><strong>主要机制：</strong>物理模拟、比赛规则、球员管理、赛季模式</p>
-                        <p><strong>代表作品：</strong>《FIFA》系列、《NBA 2K》系列、《实况足球》、《麦登橄榄球》</p>
-                        <p><strong>玩家体验：</strong>竞技快感、真实感、团队合作</p>
-                        <p><strong>发展趋势：</strong>实时数据同步、电竞化、虚拟现实</p>
+
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h4>《皇室战争》</h4>
+                            <span class="example-tag">实时策略卡牌</span>
+                        </div>
+                        <div class="example-content">
+                            <p><strong>游戏简介：</strong>Supercell出品的实时多人策略卡牌游戏。玩家收集卡牌，在3分钟内摧毁对手国王塔获胜。</p>
+                            <p><strong>核心玩法：</strong>实时资源管理、卡牌部署、单位组合、防守反击。快节奏、高强度的即时策略对抗。</p>
+                            <p><strong>成功要素：</strong>平衡的卡牌系统、公平竞技、短视频传播效应、全球竞技生态。</p>
+                        </div>
                     </div>
-                    
-                    <div class="type-item">
-                        <h3>竞速游戏 (Racing Games)</h3>
-                        <p><strong>核心特点：</strong>以赛车或其他载具竞速为主题，强调速度感和驾驶技巧。</p>
-                        <p><strong>主要机制：</strong>物理引擎、车辆操控、赛道设计、改装系统</p>
-                        <p><strong>代表作品：</strong>《极品飞车》、《GT赛车》、《F1》系列、《马里奥赛车》</p>
-                        <p><strong>玩家体验：</strong>速度感、竞争性、技巧挑战</p>
-                        <p><strong>发展趋势：</strong>真实物理模拟、在线多人竞速、VR驾驶</p>
+
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h4>《刀塔传奇》</h4>
+                            <span class="example-tag">动作卡牌RPG</span>
+                        </div>
+                        <div class="example-content">
+                            <p><strong>游戏简介：</strong>国内早期成功的动作卡牌RPG，基于DOTA世界观。收集英雄，自动战斗，释放技能。</p>
+                            <p><strong>核心玩法：</strong>英雄收集与培养、自动战斗、技能释放时机、阵容搭配。简化操作，保留策略深度。</p>
+                            <p><strong>成功要素：</strong>知名IP加持、简化操作降低门槛、强养成系统、社交互动。</p>
+                        </div>
                     </div>
-                    
-                    <div class="type-item">
-                        <h3>益智游戏 (Puzzle Games)</h3>
-                        <p><strong>核心特点：</strong>以解决谜题为主要目标，锻炼逻辑思维和空间想象能力。</p>
-                        <p><strong>主要机制：</strong>逻辑推理、图案识别、空间操作、时间限制</p>
-                        <p><strong>代表作品：</strong>《俄罗斯方块》、《纪念碑谷》、《机械迷宫》、《数独》</p>
-                        <p><strong>玩家体验：</strong>脑力挑战、成就感、放松感</p>
-                        <p><strong>发展趋势：</strong>移动平台、休闲化、教育结合</p>
-                    </div>
-                    
-                    <div class="type-item">
-                        <h3>音乐/节奏游戏 (Music/Rhythm Games)</h3>
-                        <p><strong>核心特点：</strong>根据音乐节拍进行操作，结合视听体验与游戏玩法。</p>
-                        <p><strong>主要机制：</strong>音符判定、节奏同步、连击系统、评分机制</p>
-                        <p><strong>代表作品：</strong>《吉他英雄》、《太鼓达人》、《节奏光剑》、《Cytus》</p>
-                        <p><strong>玩家体验：</strong>音乐享受、节奏感、成就感</p>
-                        <p><strong>发展趋势：</strong>VR体验、AI作曲、社交互动</p>
-                    </div>
-                    
-                    <div class="type-item">
-                        <h3>沙盒游戏 (Sandbox Games)</h3>
-                        <p><strong>核心特点：</strong>提供高度自由的开放世界，玩家可自由探索、创造和改变游戏世界。</p>
-                        <p><strong>主要机制：</strong>自由建造、物理引擎、生态系统、无限可能性</p>
-                        <p><strong>代表作品：</strong>《我的世界》、《侠盗猎车手》、《上古卷轴》、《塞尔达传说：旷野之息》</p>
-                        <p><strong>玩家体验：</strong>自由度、创造力、探索乐趣</p>
-                        <p><strong>发展趋势：</strong>程序生成、AI助手、跨平台协作</p>
-                    </div>
-                    
-                    <div class="type-item">
-                        <h3>多人在线战术竞技游戏 (MOBA)</h3>
-                        <p><strong>核心特点：</strong>团队合作、策略与操作并重，强调团队配合和战术执行。</p>
-                        <p><strong>主要机制：</strong>英雄选择、装备系统、地图控制、团队配合</p>
-                        <p><strong>代表作品：</strong>《英雄联盟》、《DOTA2》、《王者荣耀》、《风暴英雄》</p>
-                        <p><strong>玩家体验：</strong>竞技性、团队合作、策略深度</p>
-                        <p><strong>发展趋势：</strong>移动化、电竞产业化、AI辅助训练</p>
-                    </div>
-                    
-                    <div class="type-item">
-                        <h3>大逃杀游戏 (Battle Royale)</h3>
-                        <p><strong>核心特点：</strong>生存竞争、随机性、紧张刺激，玩家在缩小的安全区内争夺最后生存权。</p>
-                        <p><strong>主要机制：</strong>物资搜集、安全区收缩、第三人称视角、生存竞争</p>
-                        <p><strong>代表作品：</strong>《绝地求生》、《堡垒之夜》、《Apex英雄》、《和平精英》</p>
-                        <p><strong>玩家体验：</strong>紧张感、随机性、生存挑战</p>
-                        <p><strong>发展趋势：</strong>跨平台联机、创意模式、社交功能</p>
+                </div>
+
+                <div class="market-analysis">
+                    <h3>市场分析</h3>
+                    <table class="market-detail-table">
+                        <thead>
+                            <tr>
+                                <th>分析维度</th>
+                                <th>现状</th>
+                                <th>趋势</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>市场规模</td>
+                                <td>移动游戏市场占比30%，年流水超千亿元</td>
+                                <td>持续增长，细分市场不断涌现</td>
+                            </tr>
+                            <tr>
+                                <td>用户画像</td>
+                                <td>覆盖全年龄段，女性玩家占比高</td>
+                                <td>年轻化、全球化</td>
+                            </tr>
+                            <tr>
+                                <td>付费模式</td>
+                                <td>免费+内购为主，卡包抽卡是主要收入</td>
+                                <td>订阅制、通行证模式兴起</td>
+                            </tr>
+                            <tr>
+                                <td>竞争格局</td>
+                                <td>头部产品垄断，新游戏难以突围</td>
+                                <td>IP化、差异化、品质化竞争</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="development-trends">
+                    <h3>发展趋势</h3>
+                    <div class="trend-list">
+                        <div class="trend-item">
+                            <div class="trend-icon">🎮</div>
+                            <div class="trend-content">
+                                <h4>竞技化与电竞化</h4>
+                                <p>休闲/卡牌游戏逐渐向竞技方向发展，建立完善的赛事体系和排名系统。</p>
+                            </div>
+                        </div>
+                        <div class="trend-item">
+                            <div class="trend-icon">🎨</div>
+                            <div class="trend-content">
+                                <h4>IP联动与跨界合作</h4>
+                                <p>与动漫、电影、游戏IP深度联动，推出限定卡牌和活动，吸引IP粉丝。</p>
+                            </div>
+                        </div>
+                        <div class="trend-item">
+                            <div class="trend-icon">🌍</div>
+                            <div class="trend-content">
+                                <h4>全球化发行</h4>
+                                <p>中国卡牌游戏成功出海，在全球市场取得成功，推动文化输出。</p>
+                            </div>
+                        </div>
+                        <div class="trend-item">
+                            <div class="trend-icon">🤖</div>
+                            <div class="trend-content">
+                                <h4>AI技术应用</h4>
+                                <p>AI辅助卡牌平衡调整、智能匹配、个性化推荐，提升游戏体验。</p>
+                            </div>
+                        </div>
+                        <div class="trend-item">
+                            <div class="trend-icon">📱</div>
+                            <div class="trend-content">
+                                <h4>跨平台体验</h4>
+                                <p>移动端、PC端、主机端数据互通，提供无缝的游戏体验。</p>
+                            </div>
+                        </div>
+                        <div class="trend-item">
+                            <div class="trend-icon">🎭</div>
+                            <div class="trend-content">
+                                <h4>元宇宙概念融合</h4>
+                                <p>探索虚拟卡牌对战、数字资产确权等元宇宙相关玩法。</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
-            
+
             <section class="cross-genre-trends">
                 <h2>跨类型融合趋势</h2>
-                <p>现代游戏越来越倾向于融合多种类型的特点，创造出新的游戏体验。例如，动作RPG结合了动作游戏的战斗系统和RPG的角色成长系统；模拟经营游戏中加入策略元素；冒险游戏中融入解谜和动作要素等。这种跨类型融合不仅丰富了游戏体验，也为开发者提供了更多的创新空间。</p>
+
+                <table class="genre-fusion-table">
+                    <thead>
+                        <tr>
+                            <th>融合类型</th>
+                        <th>融合示例</th>
+                        <th>创新点</th>
+                        <th>市场表现</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>动作RPG</td>
+                            <td>战斗+角色成长</td>
+                            <td>实时战斗+深度成长系统</td>
+                            <td>《原神》《塞尔达传说》</td>
+                        </tr>
+                        <tr>
+                            <td>策略模拟</td>
+                            <td>策略+模拟经营</td>
+                            <td>资源管理+城市建设</td>
+                            <td>《城市：天际线》《纪元》</td>
+                        </tr>
+                        <tr>
+                            <td>冒险解谜</td>
+                            <td>探索+解谜元素</td>
+                            <td>剧情+智力挑战</td>
+                            <td>《神秘海域》《古墓丽影》</td>
+                        </tr>
+                        <tr>
+                            <td>体育竞技</td>
+                            <td>体育+竞技模式</td>
+                            <td>真实模拟+竞技排名</td>
+                            <td>《FIFA》《NBA 2K》</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="market-insights">
+                <h2>市场洞察</h2>
+
+                <table class="market-insight-table">
+                    <thead>
+                        <tr>
+                            <th>洞察维度</th>
+                            <th>市场现状</th>
+                            <th>发展趋势</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>平台分布</td>
+                            <td>移动端75%，PC端18%，主机7%</td>
+                            <td>云游戏、跨平台同步</td>
+                        </tr>
+                        <tr>
+                            <td>用户偏好</td>
+                            <td>休闲类45%，竞技类25%，RPG类20%</td>
+                            <td>精品化、个性化</td>
+                        </tr>
+                        <tr>
+                            <td>付费模式</td>
+                            <td>免费+内购占80%</td>
+                            <td>订阅制、NFT兴起</td>
+                        </tr>
+                        <tr>
+                            <td>地域差异</td>
+                            <td>一线城市品质导向，三四线价格敏感</td>
+                            <td>下沉市场、全球化</td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
 
             <section class="future-outlook">
-                <h2>2026年游戏类型发展趋势展望</h2>
-                <p>展望2026年，游戏类型将呈现以下发展趋势：</p>
-                
-                <div class="trend-analysis">
-                    <h3>新兴游戏类型</h3>
-                    <ul>
-                        <li><strong>AI驱动叙事游戏：</strong>利用AI技术实现真正动态的、个性化的叙事体验</li>
-                        <li><strong>混合现实游戏：</strong>结合AR、VR和真实世界的全新游戏体验</li>
-                        <li><strong>神经接口游戏：</strong>通过脑机接口技术实现的沉浸式体验</li>
-                        <li><strong>元宇宙原生游戏：</strong>专门为虚拟世界设计的新型游戏类型</li>
-                    </ul>
-                </div>
-                
-                <div class="trend-analysis">
-                    <h3>传统类型演进</h3>
-                    <ul>
-                        <li><strong>AI辅助MMO：</strong>AI NPC将提供更真实的互动体验</li>
-                        <li><strong>自适应竞技游戏：</strong>根据玩家技能和情绪状态动态调整游戏平衡</li>
-                        <li><strong>程序化开放世界：</strong>AI生成的无限内容和任务</li>
-                        <li><strong>情感感知休闲游戏：</strong>能够感知玩家情绪并调整游戏体验</li>
-                    </ul>
-                </div>
-                
-                <div class="trend-analysis">
-                    <h3>技术融合趋势</h3>
-                    <ul>
-                        <li><strong>AI与云游戏结合：</strong>云端AI处理复杂计算和内容生成</li>
-                        <li><strong>区块链与游戏结合：</strong>真正的去中心化游戏经济</li>
-                        <li><strong>物联网游戏：</strong>与现实世界物体互动的游戏体验</li>
-                        <li><strong>量子计算应用：</strong>实现前所未有的复杂模拟和计算</li>
-                    </ul>
-                </div>
-            </section>
+                <h2>趋势展望</h2>
 
-            <section class="future-outlook">
-                <h2>2026年游戏类型发展趋势展望</h2>
-                <p>展望2026年，游戏类型将呈现以下发展趋势：</p>
-                
-                <div class="trend-analysis">
-                    <h3>新兴游戏类型</h3>
-                    <ul>
-                        <li><strong>AI驱动叙事游戏：</strong>利用AI技术实现真正动态的、个性化的叙事体验</li>
-                        <li><strong>混合现实游戏：</strong>结合AR、VR和真实世界的全新游戏体验</li>
-                        <li><strong>神经接口游戏：</strong>通过脑机接口技术实现的沉浸式体验</li>
-                        <li><strong>元宇宙原生游戏：</strong>专门为虚拟世界设计的新型游戏类型</li>
-                    </ul>
-                </div>
-                
-                <div class="trend-analysis">
-                    <h3>传统类型演进</h3>
-                    <ul>
-                        <li><strong>AI辅助MMO：</strong>AI NPC将提供更真实的互动体验</li>
-                        <li><strong>自适应竞技游戏：</strong>根据玩家技能和情绪状态动态调整游戏平衡</li>
-                        <li><strong>程序化开放世界：</strong>AI生成的无限内容和任务</li>
-                        <li><strong>情感感知休闲游戏：</strong>能够感知玩家情绪并调整游戏体验</li>
-                    </ul>
-                </div>
-                
-                <div class="trend-analysis">
-                    <h3>技术融合趋势</h3>
-                    <ul>
-                        <li><strong>AI与云游戏结合：</strong>云端AI处理复杂计算和内容生成</li>
-                        <li><strong>区块链与游戏结合：</strong>真正的去中心化游戏经济</li>
-                        <li><strong>物联网游戏：</strong>与现实世界物体互动的游戏体验</li>
-                        <li><strong>量子计算应用：</strong>实现前所未有的复杂模拟和计算</li>
-                    </ul>
+                <table class="future-trend-table">
+                    <thead>
+                        <tr>
+                            <th>趋势方向</th>
+                            <th>具体内容</th>
+                            <th>影响程度</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AI驱动游戏</td>
+                            <td>程序化内容生成、智能NPC、个性化体验</td>
+                            <td>高</td>
+                        </tr>
+                        <tr>
+                            <td>元宇宙融合</td>
+                            <td>虚拟世界、数字资产、社交平台</td>
+                            <td>高</td>
+                        </tr>
+                        <tr>
+                            <td>云游戏普及</td>
+                            <td>5G+边缘计算，低配高质</td>
+                            <td>中高</td>
+                        </tr>
+                        <tr>
+                            <td>VR/AR成熟</td>
+                            <td>沉浸式体验，新交互方式</td>
+                            <td>中高</td>
+                        </tr>
+                        <tr>
+                            <td>区块链游戏</td>
+                            <td>NFT、Play-to-Earn模式</td>
+                            <td>中</td>
+                        </tr>
+                        <tr>
+                            <td>跨平台体验</td>
+                            <td>进度同步、社交连续性</td>
+                            <td>高</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="trend-visualization">
+                    <h3>游戏类型演进趋势图</h3>
+                    <div class="timeline-chart">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-period">早期阶段</div>
+                                <div class="timeline-description">基础游戏类型：动作、冒险、RPG、策略、益智</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-period">发展阶段</div>
+                                <div class="timeline-description">类型融合：动作RPG、策略模拟、体育竞技</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-period">现代阶段</div>
+                                <div class="timeline-description">新兴类型：MOBA、大逃杀、开放世界沙盒</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-period">未来趋势</div>
+                                <div class="timeline-description">技术驱动：AI游戏、元宇宙、云游戏、VR/AR</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="chart-caption">传统类型 + 新技术 = 创新体验</p>
                 </div>
             </section>
         </main>
     </div>
+
+    <script src="navigation.js"></script>
 </body>
 </html>

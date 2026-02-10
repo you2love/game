@@ -51,7 +51,7 @@ body {
 
 /* 左侧导航树样式 */
 .sidebar {
-    width: 280px;
+    width: 320px;
     background: var(--gradient-tertiary);
     color: white;
     padding: 2rem 1.2rem;
@@ -63,6 +63,40 @@ body {
     position: sticky;
     top: 0;
     height: 100vh;
+    transition: transform 0.3s ease, width 0.3s ease;
+}
+
+.sidebar.collapsed {
+    transform: translateX(-100%);
+    width: 0;
+    padding: 0;
+}
+
+/* 导航栏切换按钮 */
+.sidebar-toggle {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    z-index: 1001;
+    background: var(--gradient-tertiary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 12px;
+    cursor: pointer;
+    box-shadow: var(--shadow-medium);
+    transition: all 0.3s ease;
+    display: none;
+}
+
+.sidebar-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-heavy);
+}
+
+.sidebar-toggle.active {
+    left: 330px;
+    background: var(--danger-color);
 }
 
 .sidebar h2 {
@@ -82,6 +116,8 @@ body {
 .nav-tree {
     list-style: none;
     flex-grow: 1;
+    position: relative;
+    scroll-behavior: smooth;
 }
 
 .nav-tree li {
@@ -99,6 +135,27 @@ body {
     position: relative;
     overflow: hidden;
     border-left: 3px solid transparent;
+}
+
+.nav-tree strong {
+    display: block;
+    padding: 0.8rem 1.2rem;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    border-left: 3px solid var(--accent-color);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.nav-tree .sub-item {
+    margin-left: 1rem;
+}
+
+.nav-tree .sub-item a {
+    padding: 0.7rem 1.2rem 0.7rem 2.2rem; /* 增加左边距以体现层级 */
+    font-size: 0.9rem;
 }
 
 .nav-tree a::before {
@@ -128,6 +185,33 @@ body {
     color: white;
     font-weight: 600;
     border-left: 3px solid var(--primary-color);
+    position: relative;
+}
+
+/* 当前页导航项高亮动画 */
+.nav-tree li.active a::after {
+    content: '';
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--primary-color);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: translateY(-50%) scale(1.2);
+    }
 }
 
 /* 主要内容区域 */
@@ -137,6 +221,11 @@ body {
     overflow-y: auto;
     background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
     position: relative;
+    transition: margin-left 0.3s ease;
+}
+
+.main-content.expanded {
+    margin-left: 0;
 }
 
 .main-content::before {
@@ -296,6 +385,254 @@ body {
     margin-bottom: 0.8rem;
     color: #34495e;
     line-height: 1.7;
+}
+
+/* 表格样式 */
+.overview-table, .stats-table, .trend-table, .navigation-table,
+.company-info-table, .market-table, .finance-table, .impact-table, .outlook-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: var(--bg-primary);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+}
+
+.overview-table th, .overview-table td,
+.stats-table th, .stats-table td,
+.trend-table th, .trend-table td,
+.navigation-table th, .navigation-table td,
+.company-info-table th, .company-info-table td,
+.market-table th, .market-table td,
+.finance-table th, .finance-table td,
+.impact-table th, .impact-table td,
+.outlook-table th, .outlook-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.overview-table th, .stats-table th,
+.trend-table th, .navigation-table th,
+.company-info-table th, .market-table th,
+.finance-table th, .impact-table th,
+.outlook-table th {
+    background: var(--gradient-tertiary);
+    color: white;
+    font-weight: 600;
+}
+
+.overview-table tr:last-child td, .stats-table tr:last-child td,
+.trend-table tr:last-child td, .navigation-table tr:last-child td,
+.company-info-table tr:last-child td, .market-table tr:last-child td,
+.finance-table tr:last-child td, .impact-table tr:last-child td,
+.outlook-table tr:last-child td {
+    border-bottom: none;
+}
+
+.overview-table tr:nth-child(even), .stats-table tr:nth-child(even),
+.trend-table tr:nth-child(even), .navigation-table tr:nth-child(even),
+.company-info-table tr:nth-child(even), .market-table tr:nth-child(even),
+.finance-table tr:nth-child(even), .impact-table tr:nth-child(even),
+.outlook-table tr:nth-child(even) {
+    background-color: var(--bg-secondary);
+}
+
+.company-info-table tr.positive td {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.company-info-table tr.negative td {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.game-type-table, .goals-table, .trends-table,
+.audience-table, .behavior-table, .income-table, .regional-table,
+.urban-rural-table, .age-table, .occupation-table, .marital-table, .education-table,
+.game-tech-table, .ai-application-table, .tech-trends-table, .future-trends-table, .tech-fusion-table,
+.policy-impact-table, .policy-trend-table, .future-policy-table, .corporate-strategy-table,
+.social-impact-table, .response-table, .future-trend-table,
+.challenges-table, .strategies-table, .cases-table, .funding-table,
+.finance-management-table, .tech-selection-table, .dev-approach-table,
+.positioning-table, .promotion-table, .advice-table, .future-trends-table,
+.game-tech-table, .ai-application-table, .tech-trends-table,
+.tech-fusion-table, .future-trends-table,
+.audience-table, .behavior-table, .income-table, .regional-table,
+.urban-rural-table, .age-table, .occupation-table, .marital-table, .education-table,
+.demographic-table, .gender-table, .device-table, .behavior-insights-table,
+.income-segmentation-table, .regional-comparison-table, .psychological-profiles-table,
+.time-table, .strategy-recommendation-table, .future-trends-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: var(--bg-primary);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+}
+
+.game-type-table th, .game-type-table td,
+.goals-table th, .goals-table td,
+.trends-table th, .trends-table td,
+.audience-table th, .audience-table td,
+.behavior-table th, .behavior-table td,
+.income-table th, .income-table td,
+.regional-table th, .regional-table td,
+.urban-rural-table th, .urban-rural-table td,
+.age-table th, .age-table td,
+.occupation-table th, .occupation-table td,
+.marital-table th, .marital-table td,
+.education-table th, .education-table td,
+.game-tech-table th, .game-tech-table td,
+.ai-application-table th, .ai-application-table td,
+.tech-trends-table th, .tech-trends-table td,
+.tech-fusion-table th, .tech-fusion-table td,
+.future-trends-table th, .future-trends-table td,
+.policy-impact-table th, .policy-impact-table td,
+.policy-trend-table th, .policy-trend-table td,
+.future-policy-table th, .future-policy-table td,
+.corporate-strategy-table th, .corporate-strategy-table td,
+.audience-table th, .behavior-table th, .income-table th, .regional-table th,
+.urban-rural-table th, .age-table th, .occupation-table th, .marital-table th, .education-table th,
+.demographic-table th, .demographic-table td,
+.gender-table th, .gender-table td,
+.device-table th, .device-table td,
+.behavior-insights-table th, .behavior-insights-table td,
+.income-segmentation-table th, .income-segmentation-table td,
+.regional-comparison-table th, .regional-comparison-table td,
+.psychological-profiles-table th, .psychological-profiles-table td,
+.time-table th, .time-table td,
+.strategy-recommendation-table th, .strategy-recommendation-table td,
+.future-trends-table th, .future-trends-table td,
+.genre-fusion-table th, .genre-fusion-table td,
+.market-insight-table th, .market-insight-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.game-type-table th, .goals-table th, .trends-table th,
+.audience-table th, .behavior-table th, .income-table th,
+.regional-table th, .urban-rural-table th, .age-table th,
+.occupation-table th, .marital-table th, .education-table th,
+.game-tech-table th, .ai-application-table th,
+.tech-trends-table th, .future-trends-table th, .tech-fusion-table th,
+.policy-impact-table th, .policy-trend-table th,
+.future-policy-table th, .corporate-strategy-table th,
+.demographic-table th, .gender-table th, .device-table th,
+.behavior-insights-table th, .income-segmentation-table th,
+.regional-comparison-table th, .psychological-profiles-table th,
+.time-table th, .strategy-recommendation-table th, .future-trends-table th,
+.genre-fusion-table th, .market-insight-table th {
+    background: var(--gradient-tertiary);
+    color: white;
+    font-weight: 600;
+}
+
+.game-type-table tr:last-child td, .goals-table tr:last-child td,
+.trends-table tr:last-child td,
+.audience-table tr:last-child td, .behavior-table tr:last-child td,
+.income-table tr:last-child td, .regional-table tr:last-child td,
+.urban-rural-table tr:last-child td, .age-table tr:last-child td,
+.occupation-table tr:last-child td, .marital-table tr:last-child td,
+.education-table tr:last-child td,
+.game-tech-table tr:last-child td, .ai-application-table tr:last-child td,
+.tech-trends-table tr:last-child td, .future-trends-table tr:last-child td,
+.tech-fusion-table tr:last-child td,
+.policy-impact-table tr:last-child td, .policy-trend-table tr:last-child td,
+.future-policy-table tr:last-child td, .corporate-strategy-table tr:last-child td,
+.audience-table tr:last-child td, .behavior-table tr:last-child td,
+.income-table tr:last-child td, .regional-table tr:last-child td,
+.urban-rural-table tr:last-child td, .age-table tr:last-child td,
+.occupation-table tr:last-child td, .marital-table tr:last-child td,
+.education-table tr:last-child td,
+.demographic-table tr:last-child td, .gender-table tr:last-child td,
+.device-table tr:last-child td, .behavior-insights-table tr:last-child td,
+.income-segmentation-table tr:last-child td, .regional-comparison-table tr:last-child td,
+.psychological-profiles-table tr:last-child td,
+.time-table tr:last-child td, .strategy-recommendation-table tr:last-child td,
+.future-trends-table tr:last-child td {
+    border-bottom: none;
+}
+
+.game-type-table tr:nth-child(even), .goals-table tr:nth-child(even),
+.trends-table tr:nth-child(even),
+.audience-table tr:nth-child(even), .behavior-table tr:nth-child(even),
+.income-table tr:nth-child(even), .regional-table tr:nth-child(even),
+.urban-rural-table tr:nth-child(even), .age-table tr:nth-child(even),
+.occupation-table tr:nth-child(even), .marital-table tr:nth-child(even),
+.education-table tr:nth-child(even),
+.game-tech-table tr:nth-child(even), .ai-application-table tr:nth-child(even),
+.tech-trends-table tr:nth-child(even), .future-trends-table tr:nth-child(even),
+.tech-fusion-table tr:nth-child(even),
+.policy-impact-table tr:nth-child(even), .policy-trend-table tr:nth-child(even),
+.future-policy-table tr:nth-child(even), .corporate-strategy-table tr:nth-child(even),
+.audience-table tr:nth-child(even), .behavior-table tr:nth-child(even),
+.income-table tr:nth-child(even), .regional-table tr:nth-child(even),
+.urban-rural-table tr:nth-child(even), .age-table tr:nth-child(even),
+.occupation-table tr:nth-child(even), .marital-table tr:nth-child(even),
+.education-table tr:nth-child(even),
+.demographic-table tr:nth-child(even), .gender-table tr:nth-child(even),
+.device-table tr:nth-child(even), .behavior-insights-table tr:nth-child(even),
+.income-segmentation-table tr:nth-child(even), .regional-comparison-table tr:nth-child(even),
+.psychological-profiles-table tr:nth-child(even),
+.time-table tr:nth-child(even), .strategy-recommendation-table tr:nth-child(even),
+.future-trends-table tr:nth-child(even) {
+    background-color: var(--bg-secondary);
+}
+
+/* 发行公司表格样式 */
+.company-info-table, .market-table, .finance-table, .impact-table, .outlook-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: var(--bg-primary);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+}
+
+.company-info-table th, .company-info-table td,
+.market-table th, .market-table td,
+.finance-table th, .finance-table td,
+.impact-table th, .impact-table td,
+.outlook-table th, .outlook-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.company-info-table th, .market-table th,
+.finance-table th, .impact-table th,
+.outlook-table th {
+    background: var(--gradient-tertiary);
+    color: white;
+    font-weight: 600;
+}
+
+.company-info-table tr:last-child td, .market-table tr:last-child td,
+.finance-table tr:last-child td, .impact-table tr:last-child td,
+.outlook-table tr:last-child td {
+    border-bottom: none;
+}
+
+.company-info-table tr:nth-child(even), .market-table tr:nth-child(even),
+.finance-table tr:nth-child(even), .impact-table tr:nth-child(even),
+.outlook-table tr:nth-child(even) {
+    background-color: var(--bg-secondary);
+}
+
+.company-info-table tr.positive td {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.company-info-table tr.negative td {
+    background-color: #ffebee;
+    color: #c62828;
 }
 
 /* 公司详情页面样式 */
@@ -678,35 +1015,44 @@ body {
     }
 
     .sidebar {
-        width: 100%;
+        width: 320px;
         height: auto;
-        position: relative;
+        position: fixed;
+        left: 0;
+        top: 0;
         padding: 1.2rem;
+        transform: translateX(-100%);
+        z-index: 1000;
     }
-    
-    .sidebar h2 {
-        font-size: 1.3rem;
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .sidebar-toggle {
+        display: block;
     }
 
     .nav-tree {
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
         gap: 0.5rem;
     }
 
     .nav-tree li {
         margin-bottom: 0;
-        flex: 1 0 auto;
+        flex: 0 0 auto;
     }
 
     .nav-tree a {
         padding: 0.7rem;
         font-size: 0.9rem;
-        text-align: center;
+        text-align: left;
     }
 
     .main-content {
         padding: 1.5rem;
+        margin-left: 0;
     }
 
     .stats-grid {
@@ -786,9 +1132,1327 @@ body {
     }
 }
 
+/* 热力图样式 */
+.heatmap-chart {
+    background: var(--bg-primary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+}
+
+.heatmap-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.heatmap-table th,
+.heatmap-table td {
+    padding: 0.8rem;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+.heatmap-table th {
+    background: var(--gradient-tertiary);
+    color: white;
+    font-weight: 600;
+}
+
+.heat-high {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.heat-medium {
+    background-color: #f39c12;
+    color: white;
+}
+
+.heat-low {
+    background-color: #3498db;
+    color: white;
+}
+
+/* 散点图样式 */
+.scatter-chart {
+    background: var(--bg-primary);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    position: relative;
+    height: 300px;
+    border-left: 2px solid var(--gray-color);
+    border-bottom: 2px solid var(--gray-color);
+}
+
+.scatter-item {
+    position: absolute;
+    transform: translate(-50%, 50%);
+}
+
+.scatter-point {
+    width: 16px;
+    height: 16px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+    animation: pulse 2s infinite;
+}
+
+.scatter-label {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* 雷达图样式 */
+.radar-chart {
+    background: var(--bg-primary);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+}
+
+.radar-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.radar-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.radar-label {
+    min-width: 100px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.radar-bar {
+    flex: 1;
+    height: 20px;
+    background: var(--bg-tertiary);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.radar-bar::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: var(--level, 50%);
+    background: var(--gradient-accent);
+    transition: width 0.5s ease;
+}
+
+/* 对比柱状图样式 */
+.comparison-bar-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background: var(--bg-primary);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+}
+
+.comparison-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.comparison-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.comparison-bar-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.comparison-label {
+    min-width: 100px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.comparison-bar {
+    flex: 1;
+    height: 25px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 0.5rem;
+    transition: width 0.5s ease;
+}
+
+.comparison-bar.male {
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+}
+
+.comparison-bar.female {
+    background: linear-gradient(to right, var(--accent-color), var(--warning-color));
+}
+
+.comparison-value {
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* 平台对比图样式 */
+.platform-comparison-chart {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.platform-card {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.platform-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.platform-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.platform-card h4 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.platform-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.stat-row span:first-child {
+    color: var(--text-secondary);
+}
+
+.stat-value {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* 柱状图样式 */
+.bar-chart-bar-container {
+    flex: 1;
+    background: var(--bg-tertiary);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.bar-chart-bar {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 0.8rem;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: width 0.5s ease;
+}
+
+/* 休闲/卡牌游戏详细介绍样式 */
+.casual-card-detailed {
+    margin: 3rem 0;
+}
+
+.detail-intro {
+    background: var(--bg-primary);
+    padding: 1.8rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.detail-intro p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.8rem;
+    margin-bottom: 3rem;
+}
+
+.feature-item {
+    background: var(--bg-primary);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.feature-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.feature-item ul {
+    list-style: none;
+}
+
+.feature-item li {
+    margin-bottom: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.feature-item li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.feature-item li strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.game-examples {
+    margin-bottom: 3rem;
+}
+
+.game-examples h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.example-card {
+    background: var(--bg-primary);
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.example-card:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-3px);
+}
+
+.example-header {
+    background: var(--gradient-tertiary);
+    padding: 1.2rem 1.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.example-header h4 {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.example-tag {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.example-content {
+    padding: 1.8rem;
+}
+
+.example-content p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.example-content p:last-child {
+    margin-bottom: 0;
+}
+
+.example-content strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.market-analysis {
+    margin-bottom: 3rem;
+}
+
+.market-analysis h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.market-detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-primary);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+}
+
+.market-detail-table th,
+.market-detail-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.market-detail-table th {
+    background: var(--gradient-tertiary);
+    color: white;
+    font-weight: 600;
+}
+
+.market-detail-table tr:last-child td {
+    border-bottom: none;
+}
+
+.market-detail-table tr:nth-child(even) {
+    background-color: var(--bg-secondary);
+}
+
+.development-trends {
+    margin-bottom: 3rem;
+}
+
+.development-trends h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.trend-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.trend-item {
+    background: var(--bg-primary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    display: flex;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.trend-item:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateX(5px);
+}
+
+.trend-icon {
+    font-size: 2rem;
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trend-content h4 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.trend-content p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .trend-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .example-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
 /* 平滑滚动 */
 html {
     scroll-behavior: smooth;
+}
+
+/* 图表容器样式 */
+.chart-container {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--bg-primary);
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    border-left: 4px solid var(--primary-color);
+}
+
+.chart-container h3 {
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* 饼图样式 */
+.pie-chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+.pie-segment {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transform: rotate(var(--rotation));
+    clip-path: polygon(50% 50%, 50% 0%, var(--end-x) var(--end-y));
+}
+
+.pie-label {
+    position: absolute;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    pointer-events: none;
+}
+
+.pie-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.legend-text {
+    color: var(--text-secondary);
+}
+
+.chart-caption {
+    text-align: center;
+    margin-top: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* 时间轴图表样式 */
+.timeline-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--bg-primary);
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 30px;
+    bottom: -25px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+}
+
+.timeline-item:last-child::before {
+    display: none;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);
+}
+
+.timeline-content {
+    flex: 1;
+    margin-left: 1.5rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    border-left: 3px solid var(--primary-color);
+}
+
+.timeline-period {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.timeline-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.pie-chart-visual {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: conic-gradient(
+        var(--primary-color) 0deg 108deg,
+        var(--secondary-color) 108deg 162deg,
+        var(--accent-color) 162deg 205.2deg,
+        var(--warning-color) 205.2deg 270deg,
+        var(--gray-color) 270deg 360deg
+    );
+    box-shadow: var(--shadow-medium);
+}
+
+.pie-chart-visual::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: var(--bg-primary);
+    border-radius: 50%;
+}
+
+.pie-chart-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.pie-chart-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.pie-chart-legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+/* 柱状图样式 */
+.bar-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.bar-chart-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.bar-chart-label {
+    min-width: 120px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.bar-chart-bar-container {
+    flex: 1;
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.bar-chart-bar {
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 1rem;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: width 0.6s ease-out;
+    background: var(--gradient-accent);
+}
+
+.bar-chart-value {
+    margin-left: 0.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+/* 横向对比图样式 */
+.comparison-chart {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.comparison-item {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-top: 4px solid var(--primary-color);
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s ease;
+}
+
+.comparison-item:hover {
+    transform: translateY(-5px);
+}
+
+.comparison-item h4 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.comparison-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.comparison-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* 进度条样式 */
+.progress-bar-container {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: var(--bg-primary);
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+}
+
+.progress-bar-item {
+    margin-bottom: 1rem;
+}
+
+.progress-bar-item:last-child {
+    margin-bottom: 0;
+}
+
+.progress-bar-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.progress-bar {
+    height: 24px;
+    background: var(--bg-tertiary);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: var(--gradient-accent);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 1rem;
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: width 0.6s ease-out;
+}
+
+/* 统计卡片网格 */
+.stats-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.stats-card {
+    background: var(--bg-primary);
+    padding: 1.8rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+    text-align: center;
+    border-top: 4px solid var(--primary-color);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gradient-accent);
+}
+
+.stats-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.stats-card-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stats-card-label {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.stats-card-trend {
+    display: inline-block;
+    margin-top: 0.8rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.stats-card-trend.up {
+    background: #e8f5e9;
+    color: var(--success-color);
+}
+
+.stats-card-trend.down {
+    background: #ffebee;
+    color: var(--danger-color);
+}
+
+/* 时间轴样式 */
+.timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--gradient-accent);
+    border-radius: 3px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    border: 3px solid var(--bg-primary);
+    box-shadow: var(--shadow-medium);
+}
+
+.timeline-content {
+    background: var(--bg-primary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    border-left: 4px solid var(--primary-color);
+}
+
+.timeline-year {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+}
+
+.timeline-description {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* 热力图样式 */
+.heatmap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+.heatmap-cell {
+    aspect-ratio: 1;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 0.85rem;
+}
+
+.heatmap-cell:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-medium);
+}
+
+.heatmap-low {
+    background: #ffebee;
+    color: var(--danger-color);
+}
+
+.heatmap-medium-low {
+    background: #fff3e0;
+    color: var(--warning-color);
+}
+
+.heatmap-medium {
+    background: #e3f2fd;
+    color: var(--primary-color);
+}
+
+.heatmap-medium-high {
+    background: #e8f5e9;
+    color: var(--success-color);
+}
+
+.heatmap-high {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* 信息概览表格样式 */
+.overview-table-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.overview-table-card {
+    background: var(--bg-primary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.overview-table-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.overview-table-card h4 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.overview-table-card h4::before {
+    content: '';
+    width: 4px;
+    height: 20px;
+    background: var(--gradient-accent);
+    border-radius: 2px;
+}
+
+.overview-table-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.overview-table-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.overview-table-row:last-child {
+    border-bottom: none;
+}
+
+.overview-table-key {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.overview-table-value {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* 投资布局图样式 */
+.investment-chart {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.investment-item {
+    background: var(--bg-primary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    text-align: center;
+    border-top: 4px solid var(--secondary-color);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.investment-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.investment-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.investment-title {
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.investment-desc {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* 趋势卡片样式 */
+.trend-card {
+    background: var(--bg-primary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--accent-color);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.trend-card:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.trend-card h4 {
+    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.trend-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* 图表占位符样式优化 */
+.chart-placeholder {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 2px dashed var(--border-color);
+    margin: 1rem 0;
+}
+
+.chart-placeholder p {
+    color: var(--text-secondary);
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+/* 策略表格样式 */
+.strategy-table, .finance-table, .investment-table, .challenge-table, .funding-table, .tech-table, .marketing-table, .advice-table, .future-trend-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: var(--bg-primary);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+}
+
+.strategy-table th, .strategy-table td,
+.finance-table th, .finance-table td,
+.investment-table th, .investment-table td,
+.challenge-table th, .challenge-table td,
+.funding-table th, .funding-table td,
+.tech-table th, .tech-table td,
+.marketing-table th, .marketing-table td,
+.advice-table th, .advice-table td,
+.future-trend-table th, .future-trend-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.strategy-table th, .finance-table th, .investment-table th,
+.challenge-table th, .funding-table th, .tech-table th,
+.marketing-table th, .advice-table th, .future-trend-table th {
+    background: var(--gradient-tertiary);
+    color: white;
+    font-weight: 600;
+}
+
+.strategy-table tr:last-child td, .finance-table tr:last-child td,
+.investment-table tr:last-child td, .challenge-table tr:last-child td,
+.funding-table tr:last-child td, .tech-table tr:last-child td,
+.marketing-table tr:last-child td, .advice-table tr:last-child td,
+.future-trend-table tr:last-child td {
+    border-bottom: none;
+}
+
+.strategy-table tr:nth-child(even), .finance-table tr:nth-child(even),
+.investment-table tr:nth-child(even), .challenge-table tr:nth-child(even),
+.funding-table tr:nth-child(even), .tech-table tr:nth-child(even),
+.marketing-table tr:nth-child(even), .advice-table tr:nth-child(even),
+.future-trend-table tr:nth-child(even) {
+    background-color: var(--bg-secondary);
+}
+
+/* 洞察总结样式 */
+.insight-summary {
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+}
+
+.insight-summary h3 {
+    color: white;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.insight-summary p {
+    color: white;
+    margin: 0;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+/* 市场概览表格样式 */
+.market-table-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.market-table-card {
+    background: var(--bg-primary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    border-left: 4px solid var(--primary-color);
+}
+
+.market-table-card h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+    .pie-chart {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .bar-chart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .bar-chart-label {
+        min-width: auto;
+    }
+    
+    .bar-chart-bar-container {
+        width: 100%;
+    }
+    
+    .timeline::before {
+        left: 10px;
+    }
+    
+    .timeline-item {
+        padding-left: 35px;
+    }
+    
+    .timeline-item::before {
+        left: 1px;
+        width: 18px;
+        height: 18px;
+    }
+    
+    .stats-card-value {
+        font-size: 2rem;
+    }
+    
+    .overview-table-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* 章节标题样式 */
