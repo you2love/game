@@ -3,16 +3,33 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.nav-tree a');
     
+    // 二级菜单展开/折叠功能
+    const categoryToggles = document.querySelectorAll('.nav-category-toggle');
+    
+    categoryToggles.forEach(function(toggle) {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            const category = this.parentElement;
+            category.classList.toggle('expanded');
+        });
+    });
+    
     navLinks.forEach(function(link) {
         const linkHref = link.getAttribute('href');
         if (linkHref === currentPage) {
             // 移除所有active类
-            document.querySelectorAll('.nav-tree li').forEach(function(li) {
-                li.classList.remove('active');
+            document.querySelectorAll('.nav-tree a').forEach(function(a) {
+                a.classList.remove('active');
             });
             
             // 添加active类到当前项
-            link.parentElement.classList.add('active');
+            link.classList.add('active');
+            
+            // 自动展开包含当前页的二级菜单
+            const category = link.closest('.nav-category');
+            if (category) {
+                category.classList.add('expanded');
+            }
             
             // 滚动到当前项并居中
             const sidebar = document.querySelector('.sidebar');

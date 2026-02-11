@@ -8,42 +8,69 @@
 </head>
 
 <body>
-<button id="sidebarToggle" class="sidebar-toggle" title="切换导航栏">
+    <button id="sidebarToggle" class="sidebar-toggle" title="切换导航栏">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
     </button>
-
-<div class="container"><!-- 左侧导航树 -->
+    
+    <div class="container">
+        <!-- 左侧导航树 -->
         <nav class="sidebar">
             <h2>游戏产业全景</h2>
             <ul class="nav-tree">
                 <li><a href="index.html">产业概览</a></li>
                 
-                <li class="sub-item"><a href="tencent.html">腾讯游戏</a></li>
-                <li class="sub-item"><a href="netease.html">网易游戏</a></li>
-                <li class="sub-item"><a href="miyou.html">米哈游</a></li>
-                <li class="sub-item active"><a href="xindong.html">心动网络</a></li>
-                <li class="sub-item"><a href="bilibili.html">哔哩哔哩游戏</a></li>
-                <li class="sub-item"><a href="lilith.html">莉莉丝游戏</a></li>
-                <li class="sub-item"><a href="hypergryph.html">鹰角网络</a></li>
-                <li class="sub-item"><a href="koluo.html">库洛游戏</a></li>
-                <li class="sub-item"><a href="perfectworld.html">完美世界</a></li>
-                <li class="sub-item"><a href="dupaper.html">叠纸游戏</a></li>
-                
-                <li class="sub-item"><a href="cmge.html">掌趣科技</a></li>
-                <li class="sub-item"><a href="funship.html">蜂巢游戏</a></li>
-                <li class="sub-item"><a href="dianjoy.html">点joy</a></li>
-                <li class="sub-item"><a href="youzu.html">游族网络</a></li>
+                <li class="nav-category">
+                    <a href="#" class="nav-category-toggle" data-target="giants">游戏巨头 ▼</a>
+                    <ul class="nav-submenu" id="giants">
+                        <li><a href="tencent.html">腾讯游戏</a></li>
+                        <li><a href="netease.html">网易游戏</a></li>
+                        <li><a href="miyou.html">米哈游</a></li>
+                        <li><a href="bilibili.html">哔哩哔哩游戏</a></li>
+                    </ul>
+                </li>
 
-                <li class="sub-item"><a href="game-types.html">游戏分类</a></li>
-                <li class="sub-item"><a href="player-audience.html">玩家分析</a></li>
-                <li class="sub-item"><a href="tech-analysis.html">技术栈与AI影响分析</a></li>
-                <li class="sub-item"><a href="policy-impact.html">政策影响分析</a></li>
-                <li class="sub-item"><a href="social-impact.html">社会影响分析</a></li>
-                <li class="sub-item"><a href="micro-dev-strategy.html">微型游戏公司生存策略</a></li>
+                <li class="nav-category">
+                    <a href="#" class="nav-category-toggle" data-target="emerging">新兴力量 ▼</a>
+                    <ul class="nav-submenu" id="emerging">
+                        <li><a href="lilith.html">莉莉丝游戏</a></li>
+                        <li><a href="hypergryph.html">鹰角网络</a></li>
+                        <li><a href="koluo.html">库洛游戏</a></li>
+                        <li><a href="xindong.html">心动网络</a></li>
+                        <li><a href="perfectworld.html">完美世界</a></li>
+                        <li><a href="dupaper.html">叠纸游戏</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-category">
+                    <a href="#" class="nav-category-toggle" data-target="publishers">发行运营 ▼</a>
+                    <ul class="nav-submenu" id="publishers">
+                        <li><a href="cmge.html">掌趣科技</a></li>
+                        <li><a href="funship.html">蜂巢游戏</a></li>
+                        <li><a href="dianjoy.html">点joy</a></li>
+                        <li><a href="youzu.html">游族网络</a></li>
+                        <li><a href="changyou.html">畅游</a></li>
+                        <li><a href="kingsoft.html">金山软件</a></li>
+                        <li><a href="37games.html">37互娱</a></li>
+                        <li><a href="jibite.html">吉比特</a></li>
+                        <li><a href="lemon.html">柠檬微趣</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-category">
+                    <a href="#" class="nav-category-toggle" data-target="insights">行业洞察 ▼</a>
+                    <ul class="nav-submenu" id="insights">
+                        <li><a href="game-types.html">游戏分类</a></li>
+                        <li><a href="player-audience.html">玩家分析</a></li>
+                        <li><a href="tech-analysis.html">技术栈</a></li>
+                        <li><a href="policy-impact.html">政策影响</a></li>
+                        <li><a href="social-impact.html">社会事件</a></li>
+                        <li><a href="micro-dev-strategy.html">微型公司</li></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
 
@@ -59,6 +86,31 @@
                 <p>心动网络是一家集游戏开发、发行和平台运营于一体的综合性游戏公司。公司以《仙境传说》系列起家，近年来凭借TapTap游戏分发平台和多款成功的游戏产品，在游戏行业中占据了重要地位。公司特别重视独立游戏的发展和支持，致力于构建健康、开放的游戏生态。作为中国游戏产业的创新者，心动网络通过独特的平台模式为独立游戏开发者提供了重要的展示和发行渠道。</p>
             </section>
 
+            <section class="market-summary">
+                <h2>市场概览</h2>
+                <table class="market-summary-table">
+                    <thead>
+                        <tr>
+                            <th>指标</th>
+                            <th>详情</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>市场份额</td>
+                            <td>独立游戏发行领导者，TapTap平台覆盖超2亿用户</td>
+                        </tr>
+                        <tr>
+                            <td>主要玩家</td>
+                            <td>独立游戏玩家，核心用户18-35岁，追求创新体验</td>
+                        </tr>
+                        <tr>
+                            <td>营收利润</td>
+                            <td>年收入超50亿元，TapTap平台与游戏发行并重</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
             <section class="company-details">
                 <h2>核心业务与产品矩阵</h2>
                 <div class="company-info-grid">

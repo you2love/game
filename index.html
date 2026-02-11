@@ -6,6 +6,7 @@
     <title>中国游戏产业全景 | 展望与深度洞察</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <button id="sidebarToggle" class="sidebar-toggle" title="切换导航栏">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -14,36 +15,62 @@
             <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
     </button>
-    
+
     <div class="container">
         <!-- 左侧导航树 -->
         <nav class="sidebar">
             <h2>游戏产业全景</h2>
             <ul class="nav-tree">
                 <li class="active"><a href="index.html">产业概览</a></li>
-                
-                <li class="sub-item"><a href="tencent.html">腾讯游戏</a></li>
-                <li class="sub-item"><a href="netease.html">网易游戏</a></li>
-                <li class="sub-item"><a href="miyou.html">米哈游</a></li>
-                <li class="sub-item"><a href="xindong.html">心动网络</a></li>
-                <li class="sub-item"><a href="bilibili.html">哔哩哔哩游戏</a></li>
-                <li class="sub-item"><a href="lilith.html">莉莉丝游戏</a></li>
-                <li class="sub-item"><a href="hypergryph.html">鹰角网络</a></li>
-                <li class="sub-item"><a href="koluo.html">库洛游戏</a></li>
-                <li class="sub-item"><a href="perfectworld.html">完美世界</a></li>
-                <li class="sub-item"><a href="dupaper.html">叠纸游戏</a></li>
 
-                <li class="sub-item"><a href="cmge.html">掌趣科技</a></li>
-                <li class="sub-item"><a href="funship.html">蜂巢游戏</a></li>
-                <li class="sub-item"><a href="dianjoy.html">点joy</a></li>
-                <li class="sub-item"><a href="youzu.html">游族网络</a></li>
-                
-                <li class="sub-item"><a href="game-types.html">游戏分类</a></li>
-                <li class="sub-item"><a href="player-audience.html">玩家分析</a></li>
-                <li class="sub-item"><a href="tech-analysis.html">技术栈与AI影响分析</a></li>
-                <li class="sub-item"><a href="policy-impact.html">政策影响分析</a></li>
-                <li class="sub-item"><a href="social-impact.html">社会影响分析</a></li>
-                <li class="sub-item"><a href="micro-dev-strategy.html">微型游戏公司生存策略</a></li>
+                <li class="nav-category">
+                    <a href="#" class="nav-category-toggle" data-target="giants">游戏巨头 ▼</a>
+                    <ul class="nav-submenu" id="giants">
+                        <li><a href="tencent.html">腾讯游戏</a></li>
+                        <li><a href="netease.html">网易游戏</a></li>
+                        <li><a href="miyou.html">米哈游</a></li>
+                        <li><a href="bilibili.html">哔哩哔哩游戏</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-category">
+                    <a href="#" class="nav-category-toggle" data-target="emerging">新兴力量 ▼</a>
+                    <ul class="nav-submenu" id="emerging">
+                        <li><a href="lilith.html">莉莉丝游戏</a></li>
+                        <li><a href="hypergryph.html">鹰角网络</a></li>
+                        <li><a href="koluo.html">库洛游戏</a></li>
+                        <li><a href="xindong.html">心动网络</a></li>
+                        <li><a href="perfectworld.html">完美世界</a></li>
+                        <li><a href="dupaper.html">叠纸游戏</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-category">
+                    <a href="#" class="nav-category-toggle" data-target="publishers">发行运营 ▼</a>
+                    <ul class="nav-submenu" id="publishers">
+                        <li><a href="cmge.html">掌趣科技</a></li>
+                        <li><a href="funship.html">蜂巢游戏</a></li>
+                        <li><a href="dianjoy.html">点joy</a></li>
+                        <li><a href="youzu.html">游族网络</a></li>
+                        <li><a href="changyou.html">畅游</a></li>
+                        <li><a href="kingsoft.html">金山软件</a></li>
+                        <li><a href="37games.html">37互娱</a></li>
+                        <li><a href="jibite.html">吉比特</a></li>
+                        <li><a href="lemon.html">柠檬微趣</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-category">
+                    <a href="#" class="nav-category-toggle" data-target="insights">行业洞察 ▼</a>
+                    <ul class="nav-submenu" id="insights">
+                        <li><a href="game-types.html">游戏分类</a></li>
+                        <li><a href="player-audience.html">玩家分析</a></li>
+                        <li><a href="tech-analysis.html">技术栈</a></li>
+                        <li><a href="policy-impact.html">政策影响</a></li>
+                        <li><a href="social-impact.html">社会事件</a></li>
+                        <li><a href="micro-dev-strategy.html">微型公司</li></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
 
@@ -94,7 +121,7 @@
 
                 <div class="stats-section">
                     <h3>产业核心数据</h3>
-                    
+
                     <div class="stats-card-grid">
                         <div class="stats-card">
                             <div class="stats-card-value">¥3,800亿</div>
@@ -153,56 +180,57 @@
                 </div>
 
                 <div class="future-outlook">
-                                <h3>产业趋势</h3>
-                                
-                                <div class="progress-bar-container">
-                                    <div class="progress-bar-item">
-                                        <div class="progress-bar-label">
-                                            <span>AI深度融合</span>
-                                            <span>95%</span>
-                                        </div>
-                                        <div class="progress-bar">
-                                            <div class="progress-bar-fill" style="width: 95%;">95%</div>
-                                        </div>
-                                    </div>
-                                    <div class="progress-bar-item">
-                                        <div class="progress-bar-label">
-                                            <span>元宇宙成熟</span>
-                                            <span>85%</span>
-                                        </div>
-                                        <div class="progress-bar">
-                                            <div class="progress-bar-fill" style="width: 85%;">85%</div>
-                                        </div>
-                                    </div>
-                                    <div class="progress-bar-item">
-                                        <div class="progress-bar-label">
-                                            <span>全球布局</span>
-                                            <span>90%</span>
-                                        </div>
-                                        <div class="progress-bar">
-                                            <div class="progress-bar-fill" style="width: 90%;">90%</div>
-                                        </div>
-                                    </div>
-                                    <div class="progress-bar-item">
-                                        <div class="progress-bar-label">
-                                            <span>云游戏普及</span>
-                                            <span>80%</span>
-                                        </div>
-                                        <div class="progress-bar">
-                                            <div class="progress-bar-fill" style="width: 80%;">80%</div>
-                                        </div>
-                                    </div>
-                                    <div class="progress-bar-item">
-                                        <div class="progress-bar-label">
-                                            <span>跨界融合</span>
-                                            <span>75%</span>
-                                        </div>
-                                        <div class="progress-bar">
-                                            <div class="progress-bar-fill" style="width: 75%;">75%</div>
-                                        </div>
-                                    </div>
-                                </div>
+                    <h3>产业趋势</h3>
+
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-item">
+                            <div class="progress-bar-label">
+                                <span>AI深度融合</span>
+                                <span>95%</span>
                             </div>
+                            <div class="progress-bar">
+                                <div class="progress-bar-fill" style="width: 95%;">95%</div>
+                            </div>
+                        </div>
+                        <div class="progress-bar-item">
+                            <div class="progress-bar-label">
+                                <span>元宇宙成熟</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-bar-fill" style="width: 85%;">85%</div>
+                            </div>
+                        </div>
+                        <div class="progress-bar-item">
+                            <div class="progress-bar-label">
+                                <span>全球布局</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-bar-fill" style="width: 90%;">90%</div>
+                            </div>
+                        </div>
+                        <div class="progress-bar-item">
+                            <div class="progress-bar-label">
+                                <span>云游戏普及</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-bar-fill" style="width: 80%;">80%</div>
+                            </div>
+                        </div>
+                        <div class="progress-bar-item">
+                            <div class="progress-bar-label">
+                                <span>跨界融合</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-bar-fill" style="width: 75%;">75%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="guide-section">
                     <h3>平台导航</h3>
                     <table class="navigation-table">

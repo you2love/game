@@ -60,9 +60,8 @@ body {
     box-shadow: 4px 0 20px rgba(0,0,0,0.15);
     z-index: 10;
     overflow-y: auto;
-    position: sticky;
-    top: 0;
-    height: 100vh;
+    position: relative;
+    flex-shrink: 0;
     transition: transform 0.3s ease, width 0.3s ease;
 }
 
@@ -217,7 +216,7 @@ body {
 /* 主要内容区域 */
 .main-content {
     flex: 1;
-    padding: 2.5rem 3rem;
+    padding: 2.5rem 2rem;
     overflow-y: auto;
     background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
     position: relative;
@@ -1021,12 +1020,12 @@ body {
         left: 0;
         top: 0;
         padding: 1.2rem;
-        transform: translateX(-100%);
+        transform: translateX(0);
         z-index: 1000;
     }
 
-    .sidebar.open {
-        transform: translateX(0);
+    .sidebar.collapsed {
+        transform: translateX(-100%);
     }
 
     .sidebar-toggle {
@@ -2495,4 +2494,953 @@ section h2::after {
     width: 60px;
     height: 2px;
     background: var(--gradient-accent);
+}
+
+/* 社会影响分析表格优化 - 增加间距，改善可读性 */
+.social-impact-table,
+.response-table,
+.future-trend-table {
+    font-size: 0.95rem;
+    table-layout: fixed;
+}
+
+.social-impact-table th,
+.social-impact-table td,
+.response-table th,
+.response-table td,
+.future-trend-table th,
+.future-trend-table td {
+    padding: 1.25rem 1rem;
+    line-height: 1.6;
+    vertical-align: top;
+}
+
+.social-impact-table th {
+    width: 16.66%; /* 6列均分 */
+}
+
+.response-table th:first-child,
+.response-table td:first-child {
+    width: 25%;
+    min-width: 180px;
+}
+
+.future-trend-table th:first-child,
+.future-trend-table td:first-child {
+    width: 25%;
+    min-width: 180px;
+}
+
+/* 优化列表样式 */
+.social-impact-table ul,
+.response-table ul,
+.future-trend-table ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    list-style-type: disc;
+}
+
+.social-impact-table li,
+.response-table li,
+.future-trend-table li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.social-impact-table li:last-child,
+.response-table li:last-child,
+.future-trend-table li:last-child {
+    margin-bottom: 0;
+}
+
+/* 玩家心理画像表格样式 */
+.psychology-table {
+    font-size: 0.95rem;
+    table-layout: fixed;
+}
+
+.psychology-table th,
+.psychology-table td {
+    padding: 1.25rem 1rem;
+    line-height: 1.6;
+    vertical-align: top;
+}
+
+.psychology-table th:first-child,
+.psychology-table td:first-child {
+    width: 15%;
+    min-width: 120px;
+}
+
+.psychology-table th:nth-child(2),
+.psychology-table td:nth-child(2) {
+    width: 10%;
+    text-align: center;
+}
+
+.psychology-table th:nth-child(3),
+.psychology-table td:nth-child(3) {
+    width: 25%;
+}
+
+.psychology-table th:nth-child(4),
+.psychology-table td:nth-child(4) {
+    width: 25%;
+}
+
+.psychology-table th:nth-child(5),
+.psychology-table td:nth-child(5) {
+    width: 25%;
+}
+
+/* 二级菜单样式 */
+.nav-category {
+    margin: 0.5rem 0;
+}
+
+.nav-category-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.nav-category-toggle:hover {
+    background: var(--bg-secondary);
+    color: var(--primary-color);
+}
+
+.nav-category-toggle::after {
+    content: '▼';
+    font-size: 0.7em;
+    transition: transform 0.3s ease;
+}
+
+.nav-category.expanded .nav-category-toggle::after {
+    transform: rotate(180deg);
+}
+
+.nav-submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 500px;
+    overflow: visible;
+    transition: max-height 0.3s ease-out;
+    padding-left: 1rem;
+}
+
+.nav-category.expanded .nav-submenu {
+    max-height: 500px;
+    transition: max-height 0.5s ease-in;
+}
+
+.nav-submenu li {
+    margin: 0.2rem 0;
+}
+
+.nav-submenu a {
+    display: block;
+    padding: 0.6rem 1rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.nav-submenu a:hover {
+    background: var(--bg-secondary);
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.nav-submenu a.active {
+    background: var(--gradient-primary);
+    color: white;
+    font-weight: 500;
+}
+
+/* 市场概览表格样式 */
+.market-summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: var(--bg-primary);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    border-left: 4px solid var(--primary-color);
+}
+
+.market-summary-table th,
+.market-summary-table td {
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.market-summary-table th {
+    background: var(--gradient-tertiary);
+    color: white;
+    font-weight: 600;
+    width: 20%;
+}
+
+.market-summary-table td {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.market-summary-table tr:nth-child(even) {
+    background-color: var(--bg-secondary);
+}
+
+.market-summary-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* ========================================
+   player-audience.html 专用样式
+   ======================================== */
+
+/* 市场洞察表格美化样式 */
+.market-insights table,
+.time-segmentation table,
+.target-strategies table,
+.future-outlook table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin: 20px 0;
+    background: white;
+}
+
+.market-insights table thead tr,
+.time-segmentation table thead tr,
+.target-strategies table thead tr,
+.future-outlook table thead tr {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.market-insights table th,
+.time-segmentation table th,
+.target-strategies table th,
+.future-outlook table th {
+    padding: 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.market-insights table td,
+.time-segmentation table td,
+.target-strategies table td,
+.future-outlook table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e9ecef;
+    vertical-align: top;
+    line-height: 1.6;
+}
+
+.market-insights table tbody tr:nth-child(odd),
+.time-segmentation table tbody tr:nth-child(odd),
+.target-strategies table tbody tr:nth-child(odd),
+.future-outlook table tbody tr:nth-child(odd) {
+    background: #f8f9fa;
+}
+
+.market-insights table tbody tr:nth-child(even),
+.time-segmentation table tbody tr:nth-child(even),
+.target-strategies table tbody tr:nth-child(even),
+.future-outlook table tbody tr:nth-child(even) {
+    background: white;
+}
+
+.market-insights table tbody tr:hover,
+.time-segmentation table tbody tr:hover,
+.target-strategies table tbody tr:hover,
+.future-outlook table tbody tr:hover {
+    background: #f0f3ff;
+    transform: scale(1.01);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.market-insights table tbody tr:last-child td,
+.time-segmentation table tbody tr:last-child td,
+.target-strategies table tbody tr:last-child td,
+.future-outlook table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* 第一列特殊样式 */
+.market-insights table tbody tr td:first-child,
+.time-segmentation table tbody tr td:first-child,
+.target-strategies table tbody tr td:first-child,
+.future-outlook table tbody tr td:first-child {
+    font-weight: 600;
+    color: #667eea;
+    min-width: 150px;
+}
+
+/* 影响程度标签样式 */
+.impact-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.impact-tag.high {
+    background: linear-gradient(135deg, #f45c43, #eb3349);
+    color: white;
+}
+
+.impact-tag.medium {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    color: white;
+}
+
+.impact-tag.low {
+    background: linear-gradient(135deg, #38ef7d, #11998e);
+    color: white;
+}
+
+/* 成熟度指示器 */
+.maturity-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.maturity-bar {
+    width: 80px;
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.maturity-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    border-radius: 4px;
+}
+
+/* 图表容器增强样式 */
+.market-insights .chart-container {
+    margin: 30px 0;
+    padding: 25px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #f0f3ff 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.market-insights .chart-container h3 {
+    color: #667eea;
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* 趋势卡片样式 */
+.trend-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin: 15px 0;
+    border-left: 4px solid #667eea;
+    transition: all 0.3s ease;
+}
+
+.trend-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.15);
+}
+
+.trend-card h4 {
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* ========================================
+   policy-impact.html 专用样式
+   ======================================== */
+
+/* 图表样式 */
+.policy-chart-container {
+    margin: 20px 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.chart-row {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.chart-label {
+    width: 120px;
+    font-weight: 500;
+}
+
+.chart-bar-container {
+    flex: 1;
+    height: 30px;
+    background: #e9ecef;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 0 15px;
+}
+
+.chart-bar {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    color: white;
+    font-size: 12px;
+    border-radius: 15px;
+    transition: width 0.5s ease;
+}
+
+.chart-bar.primary { background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); }
+.chart-bar.success { background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%); }
+.chart-bar.warning { background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%); }
+.chart-bar.danger { background: linear-gradient(90deg, #eb3349 0%, #f45c43 100%); }
+.chart-bar.info { background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%); }
+
+.chart-value {
+    width: 80px;
+    text-align: right;
+    font-weight: bold;
+}
+
+/* 时间轴样式 */
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #e9ecef;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+    padding-left: 80px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 36px;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 1;
+}
+
+.timeline-year {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    font-weight: bold;
+    color: #667eea;
+    font-size: 16px;
+    width: 36px;
+    text-align: center;
+}
+
+.timeline-content h4 {
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.timeline-content p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* 雷达图卡片 */
+.radar-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.radar-card {
+    flex: 1;
+    min-width: 250px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.radar-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.radar-card h4 {
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.radar-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.radar-metric {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.radar-metric-label {
+    width: 80px;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.radar-metric-bar {
+    flex: 1;
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.radar-metric-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+.radar-metric-value {
+    width: 40px;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--text-primary);
+    text-align: right;
+}
+
+/* policy-impact.html 额外样式 */
+
+/* 时间轴内容样式 */
+.timeline-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.timeline-period {
+    font-size: 18px;
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+/* 矩阵图样式 */
+.matrix-chart {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.matrix-label {
+    font-weight: bold;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 5px;
+}
+
+.matrix-cell {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px;
+}
+
+.matrix-item {
+    padding: 8px 15px;
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 20px;
+    font-size: 13px;
+    transition: all 0.3s;
+}
+
+.matrix-item:hover {
+    border-color: #667eea;
+    background: #f0f3ff;
+}
+
+.matrix-item.high { border-color: #f45c43; color: #f45c43; }
+.matrix-item.medium { border-color: #f093fb; color: #f093fb; }
+.matrix-item.low { border-color: #38ef7d; color: #38ef7d; }
+
+/* policy-impact.html 雷达图样式（不同版本） */
+.policy-radar-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: nowrap;
+    margin: 30px 0;
+}
+
+.policy-radar-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    flex: 1;
+    min-width: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.policy-radar-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.radar-title {
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 14px;
+}
+
+.radar-score {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+}
+
+/* 进度环样式 */
+.progress-ring {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+}
+
+.progress-ring-circle {
+    fill: none;
+    stroke-width: 8;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+
+.progress-ring-bg {
+    stroke: #e9ecef;
+}
+
+.progress-ring-progress {
+    stroke: #667eea;
+}
+
+.progress-ring-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 热力图样式 */
+.heatmap {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+    margin: 20px 0;
+}
+
+.heatmap-cell {
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 12px;
+    color: white;
+    position: relative;
+}
+
+.heatmap-label {
+    background: #667eea;
+    font-weight: bold;
+}
+
+/* 树状图样式 */
+.tree-chart {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.tree-node {
+    text-align: center;
+    padding: 10px;
+    background: #667eea;
+    color: white;
+    border-radius: 5px;
+    margin: 5px;
+    min-width: 100px;
+}
+
+.tree-children {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 20px;
+    position: relative;
+}
+
+.tree-children::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background: #e9ecef;
+}
+
+.tree-child {
+    text-align: center;
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border: 2px solid #667eea;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+/* 美化表格样式 */
+.case-studies table,
+.international-comparison table,
+.policy-analysis table,
+.economic-impact table,
+.regulatory-ecosystem table,
+.policy-trends table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin: 20px 0;
+    background: white;
+}
+
+.case-studies table thead tr,
+.international-comparison table thead tr,
+.policy-analysis table thead tr,
+.economic-impact table thead tr,
+.regulatory-ecosystem table thead tr,
+.policy-trends table thead tr {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.case-studies table th,
+.international-comparison table th,
+.policy-analysis table th,
+.economic-impact table th,
+.regulatory-ecosystem table th,
+.policy-trends table th {
+    padding: 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.case-studies table td,
+.international-comparison table td,
+.policy-analysis table td,
+.economic-impact table td,
+.regulatory-ecosystem table td,
+.policy-trends table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e9ecef;
+    vertical-align: top;
+    line-height: 1.6;
+}
+
+.case-studies table tbody tr:nth-child(odd),
+.international-comparison table tbody tr:nth-child(odd),
+.policy-analysis table tbody tr:nth-child(odd),
+.economic-impact table tbody tr:nth-child(odd),
+.regulatory-ecosystem table tbody tr:nth-child(odd),
+.policy-trends table tbody tr:nth-child(odd) {
+    background: #f8f9fa;
+}
+
+.case-studies table tbody tr:nth-child(even),
+.international-comparison table tbody tr:nth-child(even),
+.policy-analysis table tbody tr:nth-child(even),
+.economic-impact table tbody tr:nth-child(even),
+.regulatory-ecosystem table tbody tr:nth-child(even),
+.policy-trends table tbody tr:nth-child(even) {
+    background: white;
+}
+
+.case-studies table tbody tr:hover,
+.international-comparison table tbody tr:hover,
+.policy-analysis table tbody tr:hover,
+.economic-impact table tbody tr:hover,
+.regulatory-ecosystem table tbody tr:hover,
+.policy-trends table tbody tr:hover {
+    background: #f0f3ff;
+    transform: scale(1.01);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.case-studies table tbody tr:last-child td,
+.international-comparison table tbody tr:last-child td,
+.policy-analysis table tbody tr:last-child td,
+.economic-impact table tbody tr:last-child td,
+.regulatory-ecosystem table tbody tr:last-child td,
+.policy-trends table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.case-studies table tbody tr td:first-child,
+.international-comparison table tbody tr td:first-child,
+.policy-analysis table tbody tr td:first-child,
+.economic-impact table tbody tr td:first-child,
+.regulatory-ecosystem table tbody tr td:first-child,
+.policy-trends table tbody tr td:first-child {
+    font-weight: 600;
+    color: #667eea;
+    min-width: 150px;
+}
+
+/* 标签样式 */
+.case-studies table td span.tag,
+.international-comparison table td span.tag,
+.policy-analysis table td span.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 2px;
+}
+
+.tag-positive {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    color: white;
+}
+
+.tag-negative {
+    background: linear-gradient(135deg, #eb3349, #f45c43);
+    color: white;
+}
+
+.tag-neutral {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+/* 响应式表格 */
+@media (max-width: 768px) {
+    .market-insights table,
+    .time-segmentation table,
+    .target-strategies table,
+    .case-studies table,
+    .international-comparison table,
+    .policy-analysis table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .case-studies table thead,
+    .international-comparison table thead,
+    .policy-analysis table thead {
+        display: none;
+    }
+
+    .case-studies table tbody tr,
+    .international-comparison table tbody tr,
+    .policy-analysis table tbody tr {
+        display: block;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .case-studies table tbody tr td,
+    .international-comparison table tbody tr td,
+    .policy-analysis table tbody tr td {
+        display: block;
+        padding: 10px 15px;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .case-studies table tbody tr td:first-child,
+    .international-comparison table tbody tr td:first-child,
+    .policy-analysis table tbody tr td:first-child {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+    }
 }
