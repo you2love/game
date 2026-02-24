@@ -411,25 +411,21 @@
                     <div class="chart-block fade-in">
                         <div class="chart-header">
                             <h3>终端类型分布</h3>
+                            <span class="chart-tag">2026</span>
                         </div>
-                        <div class="gauge-chart">
-                            <div class="gauge-item">
-                                <div class="gauge" style="--gauge-percent: 72%">
-                                    <span class="gauge-value">72%</span>
-                                </div>
-                                <span class="gauge-label">移动端</span>
+                        <div class="pie-chart-container">
+                            <div class="pie-chart">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="30" fill="none" stroke="#e2e8f0" stroke-width="25"/>
+                                    <circle cx="50" cy="50" r="30" fill="none" stroke="#0891b2" stroke-width="25" stroke-dasharray="135.7 188.5" stroke-dashoffset="0" transform="rotate(-90 50 50)"/>
+                                    <circle cx="50" cy="50" r="30" fill="none" stroke="#7c3aed" stroke-width="25" stroke-dasharray="37.7 188.5" stroke-dashoffset="-135.7" transform="rotate(-90 50 50)"/>
+                                    <circle cx="50" cy="50" r="30" fill="none" stroke="#2563eb" stroke-width="25" stroke-dasharray="15.1 188.5" stroke-dashoffset="-173.4" transform="rotate(-90 50 50)"/>
+                                </svg>
                             </div>
-                            <div class="gauge-item">
-                                <div class="gauge" style="--gauge-percent: 20%">
-                                    <span class="gauge-value">20%</span>
-                                </div>
-                                <span class="gauge-label">PC端</span>
-                            </div>
-                            <div class="gauge-item">
-                                <div class="gauge" style="--gauge-percent: 8%">
-                                    <span class="gauge-value">8%</span>
-                                </div>
-                                <span class="gauge-label">主机</span>
+                            <div class="pie-legend">
+                                <div class="legend-item"><span class="legend-color" style="background:#0891b2"></span>移动端 72%</div>
+                                <div class="legend-item"><span class="legend-color" style="background:#7c3aed"></span>PC端 20%</div>
+                                <div class="legend-item"><span class="legend-color" style="background:#2563eb"></span>主机 8%</div>
                             </div>
                         </div>
                     </div>
