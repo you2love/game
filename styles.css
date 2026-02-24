@@ -491,12 +491,12 @@ a:hover {
 }
 
 .donut-segment {
-    animation: donutGrow 1s ease-out forwards;
-    stroke-dasharray: 0 251.2;
+    animation: donutGrow 0.8s ease-out forwards;
 }
 
 @keyframes donutGrow {
-    to { stroke-dasharray: var(--dash) 251.2; }
+    from { stroke-dasharray: 0 251.2; }
+    to { stroke-dasharray: inherit; }
 }
 
 .donut-center {
