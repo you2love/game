@@ -39,7 +39,7 @@
 
 body {
     font-family: var(--font-body);
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.7;
     color: var(--text-primary);
     background: var(--bg-primary);
@@ -94,8 +94,8 @@ a:hover {
 
 /* 侧边导航 */
 .sidebar {
-    width: 160px;
-    min-width: 160px;
+    width: 180px;
+    min-width: 180px;
     background: var(--bg-card);
     border-right: 1px solid var(--border-color);
     position: fixed;
@@ -135,7 +135,7 @@ a:hover {
 }
 
 .sidebar-header h2 {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
     color: var(--text-primary);
     letter-spacing: 0.5px;
@@ -177,9 +177,9 @@ a:hover {
 
 .nav-tree a {
     display: block;
-    padding: 8px 12px;
+    padding: 10px 14px;
     color: var(--text-secondary);
-    font-size: 12px;
+    font-size: 13px;
     transition: all 0.2s;
     border-left: 2px solid transparent;
 }
@@ -233,8 +233,8 @@ a:hover {
 .main-content {
     flex: 1;
     min-width: 0;
-    margin-left: 160px;
-    padding: 16px 24px;
+    margin-left: 180px;
+    padding: 20px 28px;
     background: transparent;
 }
 
@@ -259,7 +259,7 @@ a:hover {
 }
 
 .main-header h1 {
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 4px;
@@ -268,7 +268,7 @@ a:hover {
 
 .main-header p {
     color: var(--text-secondary);
-    font-size: 13px;
+    font-size: 15px;
     margin-bottom: 8px;
 }
 
@@ -301,15 +301,15 @@ a:hover {
 }
 
 .section-title {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: 12px;
-    padding-bottom: 8px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
     border-bottom: 1px solid var(--border-color);
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
 }
 
 .title-icon {
@@ -341,7 +341,7 @@ a:hover {
 }
 
 .stat-value {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 700;
     font-family: var(--font-mono);
     color: var(--text-primary);
@@ -349,9 +349,9 @@ a:hover {
 }
 
 .stat-label {
-    font-size: 10px;
+    font-size: 12px;
     color: var(--text-muted);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .stat-card {
@@ -544,8 +544,9 @@ a:hover {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    height: 200px;
-    padding-top: 20px;
+    height: 180px;
+    padding-top: 24px;
+    gap: 8px;
 }
 
 .bar-item {
@@ -557,13 +558,15 @@ a:hover {
 }
 
 .bar {
-    width: 36px;
+    width: 100%;
+    max-width: 45px;
     background: linear-gradient(180deg, var(--accent-cyan), #0ea5e9);
     border-radius: 4px 4px 0 0;
     position: relative;
     transition: all 0.3s;
     animation: barGrow 0.8s ease-out forwards;
     animation-delay: var(--delay, 0s);
+    min-height: 20px;
 }
 
 @keyframes barGrow {
@@ -581,18 +584,18 @@ a:hover {
 
 .bar-value {
     position: absolute;
-    top: -22px;
+    top: -20px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 10px;
+    font-size: 9px;
     font-family: var(--font-mono);
     color: var(--text-secondary);
     white-space: nowrap;
 }
 
 .bar-label {
-    margin-top: 8px;
-    font-size: 11px;
+    margin-top: 6px;
+    font-size: 10px;
     color: var(--text-muted);
 }
 
@@ -610,10 +613,10 @@ a:hover {
 
 .data-table th,
 .data-table td {
-    padding: 10px 12px;
+    padding: 12px 14px;
     text-align: left;
     border-bottom: 1px solid var(--border-color);
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .data-table th {
@@ -669,6 +672,10 @@ a:hover {
     border-bottom: 1px solid var(--border-color);
 }
 
+.heatmap-row:nth-child(even) {
+    background: var(--bg-secondary);
+}
+
 .heatmap-row:last-child {
     border-bottom: none;
 }
@@ -678,8 +685,8 @@ a:hover {
 }
 
 .heatmap-cell {
-    padding: 10px 12px;
-    font-size: 12px;
+    padding: 14px 16px;
+    font-size: 14px;
     border-right: 1px solid var(--border-color);
     display: flex;
     align-items: center;
@@ -693,31 +700,33 @@ a:hover {
     font-weight: 600;
     color: var(--accent-cyan);
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 12px;
+    background: rgba(8, 145, 178, 0.08);
 }
 
 .heat-bar {
     display: inline-flex;
     align-items: center;
-    padding: 4px 10px;
-    background: rgba(8, 145, 178, 0.1);
+    justify-content: center;
+    padding: 6px 12px;
+    background: var(--bg-secondary);
     border-radius: 4px;
     font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--text-secondary);
-    min-width: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    min-width: 60px;
+    border: 1px solid var(--border-color);
 }
 
 .heat-bar::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: var(--heat);
-    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
-    opacity: 0.15;
-    border-radius: 4px;
+    display: none;
+}
+
+.heat-bar.high {
+    background: linear-gradient(135deg, rgba(8, 145, 178, 0.15), rgba(124, 58, 237, 0.15));
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
 }
 
 .heat-bar.high {
@@ -887,14 +896,14 @@ a:hover {
 
 .persona-value {
     display: block;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     font-family: var(--font-mono);
     color: var(--text-primary);
 }
 
 .persona-label {
-    font-size: 10px;
+    font-size: 11px;
     color: var(--text-muted);
 }
 
