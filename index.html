@@ -8,18 +8,12 @@
 </head>
 
 <body>
-    <button id="sidebarToggle" class="sidebar-toggle" title="切换导航栏">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-    </button>
-
     <div class="container">
-        <!-- 左侧导航树 -->
+        <!-- 左侧导航 -->
         <nav class="sidebar">
-            <h2>游戏产业全景</h2>
+            <div class="sidebar-header">
+                <h2>游戏产业全景</h2>
+            </div>
             <ul class="nav-tree">
                 <li class="active"><a href="index.html">产业概览</a></li>
 
@@ -74,20 +68,20 @@
             </ul>
         </nav>
 
-        <!-- 右侧主要内容区 -->
+        <!-- 主内容区 -->
         <main class="main-content">
-            <header>
+            <div class="main-header">
                 <h1>中国游戏产业全景</h1>
                 <p>洞察游戏产业生态与未来趋势</p>
-            </header>
+            </div>
 
-            <section class="welcome-section">
-                <div class="hero-section">
-                    <h2>中国游戏产业前瞻</h2>
-                    <p>聚焦游戏巨头、新兴力量与行业趋势</p>
+            <section class="section">
+                <div class="card">
+                    <h2 class="section-title" style="margin-top: 0;">中国游戏产业前瞻</h2>
+                    <p class="card-text">聚焦游戏巨头、新兴力量与行业趋势</p>
                 </div>
 
-                <table class="overview-table">
+                <table class="table">
                     <thead>
                         <tr>
                             <th>类别</th>
@@ -97,169 +91,135 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>🎮 游戏巨头</td>
+                            <td><strong>游戏巨头</strong></td>
                             <td>腾讯、网易、米哈游</td>
                             <td>领军企业核心竞争力分析</td>
                         </tr>
                         <tr>
-                            <td>🚀 新兴力量</td>
+                            <td><strong>新兴力量</strong></td>
                             <td>莉莉丝、鹰角网络、库洛游戏</td>
                             <td>新锐企业创新路径</td>
                         </tr>
                         <tr>
-                            <td>🎯 细分领域</td>
+                            <td><strong>细分领域</strong></td>
                             <td>完美世界、叠纸游戏</td>
                             <td>垂直领域专业公司深度解析</td>
                         </tr>
                         <tr>
-                            <td>📊 行业洞察</td>
+                            <td><strong>行业洞察</strong></td>
                             <td>-</td>
                             <td>政策、技术、市场多维度趋势解读</td>
                         </tr>
                     </tbody>
                 </table>
 
-                <div class="stats-section">
-                    <h3>产业核心数据</h3>
-
-                    <div class="stats-card-grid">
-                        <div class="stats-card">
-                            <div class="stats-card-value">¥3,800亿</div>
-                            <div class="stats-card-label">市场规模</div>
-                            <div class="stats-card-trend up">↑ 12.5%</div>
-                        </div>
-                        <div class="stats-card">
-                            <div class="stats-card-value">7.2亿</div>
-                            <div class="stats-card-label">用户规模</div>
-                            <div class="stats-card-trend up">↑ 8.3%</div>
-                        </div>
-                        <div class="stats-card">
-                            <div class="stats-card-value">1.8万+</div>
-                            <div class="stats-card-label">上市公司</div>
-                            <div class="stats-card-trend up">↑ 5.2%</div>
-                        </div>
-                        <div class="stats-card">
-                            <div class="stats-card-value">Top 1</div>
-                            <div class="stats-card-label">全球地位</div>
-                            <div class="stats-card-trend up">↑ 保持</div>
-                        </div>
+                <h2 class="section-title">产业核心数据</h2>
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">¥3,800亿</div>
+                        <div class="stat-label">市场规模</div>
+                        <div class="stat-trend up">↑ 12.5%</div>
                     </div>
+                    <div class="stat-card">
+                        <div class="stat-value">7.2亿</div>
+                        <div class="stat-label">用户规模</div>
+                        <div class="stat-trend up">↑ 8.3%</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">1.8万+</div>
+                        <div class="stat-label">上市公司</div>
+                        <div class="stat-trend up">↑ 5.2%</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">Top 1</div>
+                        <div class="stat-label">全球地位</div>
+                        <div class="stat-trend up">↑ 保持</div>
+                    </div>
+                </div>
 
-                    <div class="chart-container">
-                        <h3>游戏类型市场份额分布</h3>
-                        <div class="pie-chart">
-                            <div class="pie-chart-visual"></div>
-                            <div class="pie-chart-legend">
-                                <div class="pie-chart-legend-item">
-                                    <div class="pie-chart-legend-color" style="background: var(--primary-color);"></div>
-                                    <span>休闲/卡牌 (30%)</span>
-                                </div>
-                                <div class="pie-chart-legend-item">
-                                    <div class="pie-chart-legend-color" style="background: var(--secondary-color);"></div>
-                                    <span>MOBA (15%)</span>
-                                </div>
-                                <div class="pie-chart-legend-item">
-                                    <div class="pie-chart-legend-color" style="background: var(--accent-color);"></div>
-                                    <span>RPG (20%)</span>
-                                </div>
-                                <div class="pie-chart-legend-item">
-                                    <div class="pie-chart-legend-color" style="background: var(--warning-color);"></div>
-                                    <span>策略 (10%)</span>
-                                </div>
-                                <div class="pie-chart-legend-item">
-                                    <div class="pie-chart-legend-color" style="background: var(--danger-color);"></div>
-                                    <span>动作 (10%)</span>
-                                </div>
-                                <div class="pie-chart-legend-item">
-                                    <div class="pie-chart-legend-color" style="background: var(--success-color);"></div>
-                                    <span>其他 (15%)</span>
-                                </div>
+                <div class="block">
+                    <div class="block-header">游戏类型市场份额分布</div>
+                    <div class="block-body">
+                        <div class="progress-box">
+                            <div class="progress-item">
+                                <div class="progress-label"><span>休闲/卡牌</span><span>30%</span></div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 30%"></div></div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-label"><span>RPG</span><span>20%</span></div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 20%"></div></div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-label"><span>MOBA</span><span>15%</span></div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 15%"></div></div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-label"><span>其他</span><span>15%</span></div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 15%"></div></div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-label"><span>策略</span><span>10%</span></div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 10%"></div></div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-label"><span>动作</span><span>10%</span></div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 10%"></div></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="future-outlook">
-                    <h3>产业趋势</h3>
-
-                    <div class="progress-bar-container">
-                        <div class="progress-bar-item">
-                            <div class="progress-bar-label">
-                                <span>AI深度融合</span>
-                                <span>95%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-bar-fill" style="width: 95%;">95%</div>
-                            </div>
-                        </div>
-                        <div class="progress-bar-item">
-                            <div class="progress-bar-label">
-                                <span>元宇宙成熟</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-bar-fill" style="width: 85%;">85%</div>
-                            </div>
-                        </div>
-                        <div class="progress-bar-item">
-                            <div class="progress-bar-label">
-                                <span>全球布局</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-bar-fill" style="width: 90%;">90%</div>
-                            </div>
-                        </div>
-                        <div class="progress-bar-item">
-                            <div class="progress-bar-label">
-                                <span>云游戏普及</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-bar-fill" style="width: 80%;">80%</div>
-                            </div>
-                        </div>
-                        <div class="progress-bar-item">
-                            <div class="progress-bar-label">
-                                <span>跨界融合</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-bar-fill" style="width: 75%;">75%</div>
-                            </div>
-                        </div>
+                <h2 class="section-title">产业趋势</h2>
+                <div class="progress-box">
+                    <div class="progress-item">
+                        <div class="progress-label"><span>AI深度融合</span><span>95%</span></div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 95%"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-label"><span>全球布局</span><span>90%</span></div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 90%"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-label"><span>元宇宙成熟</span><span>85%</span></div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-label"><span>云游戏普及</span><span>80%</span></div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 80%"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-label"><span>跨界融合</span><span>75%</span></div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 75%"></div></div>
                     </div>
                 </div>
 
-                <div class="guide-section">
-                    <h3>平台导航</h3>
-                    <table class="navigation-table">
-                        <thead>
-                            <tr>
-                                <th>内容类别</th>
-                                <th>主要分析</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>游戏公司</td>
-                                <td>战略与产品分析</td>
-                            </tr>
-                            <tr>
-                                <td>细分领域</td>
-                                <td>与发展趋势</td>
-                            </tr>
-                            <tr>
-                                <td>行业洞察</td>
-                                <td>玩家、技术、政策洞察</td>
-                            </tr>
-                            <tr>
-                                <td>微型公司</td>
-                                <td>生存策略</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <h2 class="section-title">平台导航</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>内容类别</th>
+                            <th>主要分析</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>游戏公司</td>
+                            <td>战略与产品分析</td>
+                        </tr>
+                        <tr>
+                            <td>细分领域</td>
+                            <td>与发展趋势</td>
+                        </tr>
+                        <tr>
+                            <td>行业洞察</td>
+                            <td>玩家、技术、政策洞察</td>
+                        </tr>
+                        <tr>
+                            <td>微型公司</td>
+                            <td>生存策略</td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
         </main>
     </div>

@@ -8,18 +8,12 @@
 </head>
 
 <body>
-    <button id="sidebarToggle" class="sidebar-toggle" title="切换导航栏">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-    </button>
-    
     <div class="container">
-        <!-- 左侧导航树 -->
+        <!-- 左侧导航 -->
         <nav class="sidebar">
-            <h2>游戏产业全景</h2>
+            <div class="sidebar-header">
+                <h2>游戏产业全景</h2>
+            </div>
             <ul class="nav-tree">
                 <li><a href="index.html">产业概览</a></li>
                 
@@ -74,28 +68,27 @@
             </ul>
         </nav>
 
-        <!-- 右侧主要内容区 -->
+        <!-- 主内容区 -->
         <main class="main-content">
-            <header>
+            <div class="main-header">
                 <h1>技术栈</h1>
                 <p>游戏技术架构与AI应用分析</p>
-            </header>
+            </div>
 
-            <section class="tech-overview">
-                <h2>技术概览</h2>
-                <p>现代游戏开发涵盖引擎、客户端、服务器等多层技术架构，AI技术正全面改变游戏开发与体验。</p>
-            </section>
+            <section class="section">
+                <h2 class="section-title">技术概览</h2>
+                <div class="card">
+                    <p class="card-text">现代游戏开发涵盖引擎、客户端、服务器等多层技术架构，AI技术正全面改变游戏开发与体验。</p>
+                </div>
 
-            <section class="game-type-analysis">
-                <h2>不同类型游戏的技术分析</h2>
-
-                <table class="game-tech-table">
+                <h2 class="section-title">不同类型游戏的技术分析</h2>
+                <table class="table">
                     <thead>
                         <tr>
-                            <th>游戏类型</th>
-                            <th>技术栈</th>
-                            <th>核心难点</th>
-                            <th>AI影响</th>
+                            <th style="width: 12%">游戏类型</th>
+                            <th style="width: 28%">技术栈</th>
+                            <th style="width: 30%">核心难点</th>
+                            <th style="width: 30%">AI影响</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -107,8 +100,6 @@
                                     <li><strong>语言：</strong>C#、C++、Lua</li>
                                     <li><strong>网络：</strong>客户端-服务器，状态/帧同步</li>
                                     <li><strong>后端：</strong>Java、C++、Go、Redis、MySQL</li>
-                                    <li><strong>通信：</strong>WebSocket、UDP</li>
-                                    <li><strong>渲染：</strong>Shader、PBR、粒子系统</li>
                                 </ul>
                             </td>
                             <td>
@@ -117,7 +108,6 @@
                                     <li><strong>反作弊：</strong>防止外挂，保护公平性</li>
                                     <li><strong>性能优化：</strong>低端设备流畅运行</li>
                                     <li><strong>匹配系统：</strong>智能算法，平衡技能水平</li>
-                                    <li><strong>服务器负载：</strong>处理并发，保证稳定性</li>
                                 </ul>
                             </td>
                             <td>
@@ -126,7 +116,6 @@
                                     <li><strong>反作弊：</strong>机器学习识别异常</li>
                                     <li><strong>AI陪练：</strong>不同难度对手</li>
                                     <li><strong>数据分析：</strong>优化游戏平衡</li>
-                                    <li><strong>内容生成：</strong>AI辅助设计</li>
                                 </ul>
                             </td>
                         </tr>
@@ -134,28 +123,24 @@
                             <td><strong>RPG游戏</strong></td>
                             <td>
                                 <ul>
-                                    <li><strong>引擎：</strong>Unity 3D、Unreal Engine 4/5、自研</li>
+                                    <li><strong>引擎：</strong>Unity 3D、Unreal Engine</li>
                                     <li><strong>语言：</strong>C#、C++、Python、Lua</li>
-                                    <li><strong>数据库：</strong>MongoDB、MySQL、PostgreSQL</li>
-                                    <li><strong>后端：</strong>Node.js、Spring Boot、Django</li>
-                                    <li><strong>存档：</strong>JSON、Protobuf、自定义格式</li>
-                                    <li><strong>渲染：</strong>地形、光照烘焙、动态阴影</li>
+                                    <li><strong>数据库：</strong>MongoDB、MySQL</li>
+                                    <li><strong>后端：</strong>Node.js、Spring Boot</li>
                                 </ul>
                             </td>
                             <td>
                                 <ul>
-                                    <li><strong>内容量巨大：</strong>海量剧情、任务、角色、物品管理</li>
-                                    <li><strong>数值平衡：</strong>复杂系统和成长曲线设计</li>
+                                    <li><strong>内容量巨大：</strong>海量剧情、任务管理</li>
+                                    <li><strong>数值平衡：</strong>复杂系统和成长曲线</li>
                                     <li><strong>开放世界：</strong>大地图加载和流式传输</li>
-                                    <li><strong>存档系统：</strong>数据一致性，防作弊损坏</li>
                                     <li><strong>多平台适配：</strong>不同硬件一致体验</li>
                                 </ul>
                             </td>
                             <td>
                                 <ul>
                                     <li><strong>NPC行为：</strong>智能交互和任务系统</li>
-                                    <li><strong>内容生成：</strong>程序化生成任务、地图、剧情</li>
-                                    <li><strong>个性化：</strong>根据偏好调整内容</li>
+                                    <li><strong>内容生成：</strong>程序化生成任务、地图</li>
                                     <li><strong>对话系统：</strong>NLP增强NPC对话</li>
                                     <li><strong>平衡调整：</strong>AI分析优化平衡</li>
                                 </ul>
@@ -165,30 +150,26 @@
                             <td><strong>FPS游戏</strong></td>
                             <td>
                                 <ul>
-                                    <li><strong>引擎：</strong>Unreal Engine 4/5、Source、自研</li>
+                                    <li><strong>引擎：</strong>Unreal Engine、Source</li>
                                     <li><strong>语言：</strong>C++、C#、Python</li>
-                                    <li><strong>物理：</strong>Havok、PhysX、Bullet Physics</li>
-                                    <li><strong>网络：</strong>预测补偿、插值、权威服务器</li>
-                                    <li><strong>音频：</strong>FMOD、Wwise</li>
-                                    <li><strong>渲染：</strong>延迟渲染、实时光照、抗锯齿</li>
+                                    <li><strong>物理：</strong>Havok、PhysX</li>
+                                    <li><strong>网络：</strong>预测补偿、插值</li>
                                 </ul>
                             </td>
                             <td>
                                 <ul>
-                                    <li><strong>网络延迟：</strong>预测补偿算法，最小化延迟</li>
+                                    <li><strong>网络延迟：</strong>预测补偿算法</li>
                                     <li><strong>反作弊：</strong>防透视、自瞄等外挂</li>
-                                    <li><strong>物理模拟：</strong>精确碰撞检测和弹道计算</li>
-                                    <li><strong>性能优化：</strong>高帧率，团战场景</li>
-                                    <li><strong>跨平台同步：</strong>不同输入设备体验平衡</li>
+                                    <li><strong>物理模拟：</strong>精确碰撞检测</li>
+                                    <li><strong>性能优化：</strong>高帧率团战场景</li>
                                 </ul>
                             </td>
                             <td>
                                 <ul>
-                                    <li><strong>反作弊：</strong>ML检测异常瞄准移动</li>
-                                    <li><strong>AI对手：</strong>提供训练和单人体验</li>
-                                    <li><strong>地图设计：</strong>AI分析热区平衡性</li>
-                                    <li><strong>匹配优化：</strong>智能算法提升体验</li>
-                                    <li><strong>内容生成：</strong>程序化生成地图关卡</li>
+                                    <li><strong>反作弊：</strong>ML检测异常瞄准</li>
+                                    <li><strong>AI对手：</strong>提供训练体验</li>
+                                    <li><strong>地图设计：</strong>AI分析热区</li>
+                                    <li><strong>内容生成：</strong>程序化生成关卡</li>
                                 </ul>
                             </td>
                         </tr>
@@ -196,30 +177,26 @@
                             <td><strong>SLG游戏</strong></td>
                             <td>
                                 <ul>
-                                    <li><strong>引擎：</strong>Unity 3D、Cocos Creator、自研</li>
-                                    <li><strong>语言：</strong>C#、TypeScript、JavaScript、Lua</li>
+                                    <li><strong>引擎：</strong>Unity 3D、Cocos Creator</li>
+                                    <li><strong>语言：</strong>C#、TypeScript、JavaScript</li>
                                     <li><strong>数据库：</strong>MySQL、MongoDB、Redis</li>
                                     <li><strong>后端：</strong>Java、Go、Node.js</li>
-                                    <li><strong>缓存：</strong>Redis、Memcached</li>
-                                    <li><strong>消息队列：</strong>RabbitMQ、Kafka</li>
                                 </ul>
                             </td>
                             <td>
                                 <ul>
-                                    <li><strong>复杂逻辑：</strong>庞大数值系统和关联机制</li>
-                                    <li><strong>数据一致性：</strong>服务器客户端数据同步</li>
+                                    <li><strong>复杂逻辑：</strong>庞大数值系统</li>
+                                    <li><strong>数据一致性：</strong>服务器客户端同步</li>
                                     <li><strong>长期在线：</strong>离线状态恢复</li>
-                                    <li><strong>联盟系统：</strong>复杂协作和社交功能</li>
-                                    <li><strong>平衡性：</strong>多维数值平衡，防止单一最优</li>
+                                    <li><strong>平衡性：</strong>多维数值平衡</li>
                                 </ul>
                             </td>
                             <td>
                                 <ul>
                                     <li><strong>智能推荐：</strong>推荐联盟和活动</li>
-                                    <li><strong>数值平衡：</strong>AI分析优化平衡</li>
-                                    <li><strong>内容生成：</strong>程序化生成任务事件</li>
-                                    <li><strong>反作弊：</strong>检测异常资源模式</li>
-                                    <li><strong>预测分析：</strong>预测流失和付费行为</li>
+                                    <li><strong>数值平衡：</strong>AI分析优化</li>
+                                    <li><strong>内容生成：</strong>程序化生成任务</li>
+                                    <li><strong>预测分析：</strong>预测流失行为</li>
                                 </ul>
                             </td>
                         </tr>
@@ -227,46 +204,39 @@
                             <td><strong>休闲游戏</strong></td>
                             <td>
                                 <ul>
-                                    <li><strong>引擎：</strong>Cocos Creator、Unity 2D、LayaAir、自研</li>
-                                    <li><strong>语言：</strong>TypeScript、JavaScript、C#、Lua</li>
-                                    <li><strong>后端：</strong>Node.js、PHP、Python、Go</li>
-                                    <li><strong>数据库：</strong>MongoDB、MySQL、Firebase</li>
-                                    <li><strong>广告SDK：</strong>AdMob、Facebook、穿山甲</li>
-                                    <li><strong>分析工具：</strong>Google Analytics、Firebase、友盟</li>
+                                    <li><strong>引擎：</strong>Cocos Creator、Unity 2D</li>
+                                    <li><strong>语言：</strong>TypeScript、JavaScript</li>
+                                    <li><strong>后端：</strong>Node.js、PHP、Python</li>
+                                    <li><strong>广告SDK：</strong>AdMob、穿山甲</li>
                                 </ul>
                             </td>
                             <td>
                                 <ul>
-                                    <li><strong>用户留存：</strong>设计循环机制和进度系统</li>
-                                    <li><strong>变现平衡：</strong>用户体验与收入平衡</li>
-                                    <li><strong>病毒传播：</strong>社交分享和邀请机制</li>
-                                    <li><strong>跨平台适配：</strong>不同设备体验一致</li>
-                                    <li><strong>快速迭代：</strong>数据反馈调整内容</li>
+                                    <li><strong>用户留存：</strong>设计循环机制</li>
+                                    <li><strong>变现平衡：</strong>体验与收入平衡</li>
+                                    <li><strong>病毒传播：</strong>社交分享机制</li>
+                                    <li><strong>快速迭代：</strong>数据反馈调整</li>
                                 </ul>
                             </td>
                             <td>
                                 <ul>
-                                    <li><strong>个性化推荐：</strong>根据偏好推荐内容</li>
-                                    <li><strong>难度调节：</strong>动态调整保持挑战性</li>
-                                    <li><strong>用户分层：</strong>AI分析价值和行为模式</li>
-                                    <li><strong>广告优化：</strong>智能投放和时机选择</li>
-                                    <li><strong>内容生成：</strong>AI辅助生成关卡元素</li>
+                                    <li><strong>个性化推荐：</strong>根据偏好推荐</li>
+                                    <li><strong>难度调节：</strong>动态调整难度</li>
+                                    <li><strong>用户分层：</strong>AI分析价值</li>
+                                    <li><strong>广告优化：</strong>智能投放</li>
                                 </ul>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-            </section>
 
-            <section class="ai-in-gaming">
-                <h2>AI应用</h2>
-
-                <table class="ai-application-table">
+                <h2 class="section-title">AI应用</h2>
+                <table class="table">
                     <thead>
                         <tr>
-                            <th>应用领域</th>
-                            <th>具体应用</th>
-                            <th>影响效果</th>
+                            <th style="width: 25%">应用领域</th>
+                            <th style="width: 45%">具体应用</th>
+                            <th style="width: 30%">影响效果</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -297,17 +267,14 @@
                         </tr>
                     </tbody>
                 </table>
-            </section>
 
-            <section class="future-trends">
-                <h2>技术趋势</h2>
-
-                <table class="tech-trends-table">
+                <h2 class="section-title">技术趋势</h2>
+                <table class="table">
                     <thead>
                         <tr>
-                            <th>技术方向</th>
-                            <th>具体内容</th>
-                            <th>预期影响</th>
+                            <th style="width: 20%">技术方向</th>
+                            <th style="width: 50%">具体内容</th>
+                            <th style="width: 30%">预期影响</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -334,28 +301,25 @@
                         <tr>
                             <td><strong>跨平台体验</strong></td>
                             <td>多设备无缝切换，保持进度和社交连续性</td>
-                            <td>-</td>
+                            <td>用户体验提升</td>
                         </tr>
                     </tbody>
                 </table>
-            </section>
 
-            <section class="future-outlook">
-                <h2>趋势</h2>
-
-                <table class="future-trends-table">
+                <h2 class="section-title">发展趋势</h2>
+                <table class="table">
                     <thead>
                         <tr>
-                            <th>发展趋势</th>
-                            <th>具体内容</th>
-                            <th>预期影响</th>
+                            <th style="width: 20%">发展趋势</th>
+                            <th style="width: 50%">具体内容</th>
+                            <th style="width: 30%">预期影响</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><strong>AI深度融合</strong></td>
                             <td>AI实现自适应体验，根据玩家技能、情绪和偏好实时调整内容</td>
-                            <td>-</td>
+                            <td>全新游戏体验</td>
                         </tr>
                         <tr>
                             <td><strong>云原生架构</strong></td>
@@ -370,39 +334,29 @@
                         <tr>
                             <td><strong>量子计算应用</strong></td>
                             <td>复杂模拟、加密优化，更复杂AI行为和真实物理模拟</td>
-                            <td>-</td>
+                            <td>突破性能瓶颈</td>
                         </tr>
                     </tbody>
                 </table>
 
-                <div class="trend-analysis">
-                    <h3>技术融合</h3>
-                    <table class="tech-fusion-table">
-                        <thead>
-                            <tr>
-                                <th>融合方向</th>
-                                <th>具体内容</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>AI+云游戏</strong></td>
-                                <td>云端AI处理复杂计算和内容生成</td>
-                            </tr>
-                            <tr>
-                                <td><strong>区块链+游戏</strong></td>
-                                <td>去中心化游戏经济</td>
-                            </tr>
-                            <tr>
-                                <td><strong>物联网游戏</strong></td>
-                                <td>与现实物体互动</td>
-                            </tr>
-                            <tr>
-                                <td><strong>脑机接口</strong></td>
-                                <td>大脑信号控制游戏</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <h2 class="section-title">技术融合</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-title">AI + 云游戏</div>
+                        <div class="card-text">云端AI处理复杂计算和内容生成</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">区块链 + 游戏</div>
+                        <div class="card-text">去中心化游戏经济</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">物联网游戏</div>
+                        <div class="card-text">与现实物体互动</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">脑机接口</div>
+                        <div class="card-text">大脑信号控制游戏</div>
+                    </div>
                 </div>
             </section>
         </main>
