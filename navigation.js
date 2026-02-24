@@ -9,8 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
     categoryToggles.forEach(function(toggle) {
         toggle.addEventListener('click', function(e) {
             e.preventDefault();
-            const category = this.parentElement;
-            category.classList.toggle('expanded');
+            const targetId = this.getAttribute('data-target');
+            const submenu = document.getElementById(targetId);
+            const parent = this.parentElement;
+            
+            // 切换展开状态
+            this.classList.toggle('active');
+            submenu.classList.toggle('expanded');
         });
     });
     
@@ -28,7 +33,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // 自动展开包含当前页的二级菜单
             const category = link.closest('.nav-category');
             if (category) {
-                category.classList.add('expanded');
+                const toggle = category.querySelector('.nav-category-toggle');
+                const targetId = toggle.getAttribute('data-target');
+                const submenu = document.getElementById(targetId);
+                
+                toggle.classList.add('active');
+                submenu.classList.add('expanded');
             }
             
             // 滚动到当前项并居中
@@ -48,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 100);
         }
     });
-
+    
     // 导航栏折叠功能
     const sidebarToggle = document.getElementById('sidebarToggle');
     const sidebar = document.querySelector('.sidebar');
