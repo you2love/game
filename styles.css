@@ -94,12 +94,13 @@ a:hover {
 
 /* 侧边导航 */
 .sidebar {
-    width: 180px;
-    min-width: 180px;
+    width: 160px;
+    min-width: 160px;
     background: var(--bg-card);
     border-right: 1px solid var(--border-color);
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
     height: 100vh;
     overflow-y: auto;
     z-index: 100;
@@ -115,15 +116,15 @@ a:hover {
 }
 
 .sidebar-header {
-    padding: 20px;
+    padding: 16px;
     border-bottom: 1px solid var(--border-color);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .logo-icon {
-    font-size: 24px;
+    font-size: 20px;
     color: var(--accent-cyan);
     animation: pulse 2s ease-in-out infinite;
 }
@@ -134,7 +135,7 @@ a:hover {
 }
 
 .sidebar-header h2 {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     color: var(--text-primary);
     letter-spacing: 0.5px;
@@ -143,7 +144,7 @@ a:hover {
 .nav-tree a:hover {
     background: var(--bg-glass-hover);
     color: var(--accent-cyan);
-    padding-left: 24px;
+    padding-left: 14px;
 }
 
 .nav-tree li.active > a {
@@ -167,18 +168,18 @@ a:hover {
 
 .nav-tree {
     list-style: none;
-    padding: 12px 0;
+    padding: 8px 0;
 }
 
 .nav-tree li {
-    margin: 2px 0;
+    margin: 1px 0;
 }
 
 .nav-tree a {
     display: block;
-    padding: 10px 20px;
+    padding: 8px 12px;
     color: var(--text-secondary);
-    font-size: 13px;
+    font-size: 12px;
     transition: all 0.2s;
     border-left: 2px solid transparent;
 }
@@ -224,56 +225,57 @@ a:hover {
 }
 
 .nav-submenu li a {
-    padding-left: 32px;
-    font-size: 12px;
+    padding-left: 20px;
+    font-size: 11px;
 }
 
 /* 主内容区 */
 .main-content {
     flex: 1;
     min-width: 0;
-    padding: 20px 28px;
+    margin-left: 160px;
+    padding: 16px 24px;
     background: transparent;
 }
 
 .main-header {
-    margin-bottom: 20px;
-    padding-bottom: 16px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
     border-bottom: 1px solid var(--border-color);
 }
 
 .header-badge {
     display: inline-block;
-    padding: 4px 10px;
+    padding: 2px 8px;
     background: rgba(8, 145, 178, 0.1);
     border: 1px solid rgba(8, 145, 178, 0.2);
-    border-radius: 4px;
-    font-size: 10px;
+    border-radius: 3px;
+    font-size: 9px;
     font-weight: 600;
     color: var(--accent-cyan);
     font-family: var(--font-mono);
     letter-spacing: 1px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .main-header h1 {
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     letter-spacing: -0.5px;
 }
 
 .main-header p {
     color: var(--text-secondary);
-    font-size: 14px;
-    margin-bottom: 12px;
+    font-size: 13px;
+    margin-bottom: 8px;
 }
 
 .header-meta {
     display: flex;
-    gap: 20px;
-    font-size: 12px;
+    gap: 16px;
+    font-size: 11px;
     color: var(--text-muted);
 }
 
@@ -295,19 +297,19 @@ a:hover {
 
 /* 区块标题 */
 .section {
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 
 .section-title {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: 16px;
-    padding-bottom: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
     border-bottom: 1px solid var(--border-color);
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }
 
 .title-icon {
@@ -316,14 +318,40 @@ a:hover {
 }
 
 /* 统计卡片 */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
 .stat-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
-    padding: 12px;
+    padding: 10px;
     transition: all 0.3s;
     position: relative;
     overflow: hidden;
+}
+
+.stat-icon {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    font-size: 16px;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    color: var(--text-primary);
+    margin-bottom: 0;
+}
+
+.stat-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
 }
 
 .stat-card {
@@ -1009,24 +1037,21 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-    
     .sidebar {
         width: 100%;
-        height: auto;
         position: relative;
+        height: auto;
         border-right: none;
         border-bottom: 1px solid var(--border-color);
     }
     
     .main-content {
-        padding: 20px 16px;
+        margin-left: 0;
+        padding: 16px;
     }
     
     .main-header h1 {
-        font-size: 22px;
+        font-size: 20px;
     }
     
     .stat-grid {
