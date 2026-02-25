@@ -1079,6 +1079,461 @@ a:hover {
     color: var(--text-muted);
 }
 
+/* 图表容器通用样式 */
+.chart-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--accent-cyan);
+    display: inline-block;
+}
+
+.chart-container h3::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+    margin-top: 8px;
+    border-radius: 2px;
+}
+
+.chart-caption {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border-color);
+}
+
+/* 横向柱状图 (bar-chart) */
+.bar-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 10px 0;
+}
+
+.bar-chart-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.bar-chart-label {
+    min-width: 80px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+    text-align: right;
+}
+
+.bar-chart-bar-container {
+    flex: 1;
+    height: 28px;
+    background: var(--bg-secondary);
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+}
+
+.bar-chart-bar {
+    height: 100%;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 12px;
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.bar-chart-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2));
+}
+
+.bar-chart-bar:hover {
+    filter: brightness(1.1);
+    transform: scaleX(1.02);
+    transform-origin: left;
+}
+
+.bar-chart-value {
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    font-family: var(--font-mono);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* 散点图 */
+.scatter-chart {
+    position: relative;
+    height: 280px;
+    background: 
+        linear-gradient(90deg, var(--border-color) 1px, transparent 1px),
+        linear-gradient(var(--border-color) 1px, transparent 1px);
+    background-size: 25% 25%;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+}
+
+.scatter-item {
+    position: absolute;
+    transform: translate(-50%, 50%);
+}
+
+.scatter-point {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(8, 145, 178, 0.4);
+    animation: pulse 2s infinite;
+}
+
+.scatter-label {
+    position: absolute;
+    left: 30px;
+    top: -10px;
+    font-size: 11px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    background: var(--bg-card);
+    padding: 4px 8px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* 雷达图/水平进度条 */
+.radar-chart {
+    padding: 20px 0;
+}
+
+.radar-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.radar-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.radar-label {
+    min-width: 80px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+    text-align: right;
+}
+
+.radar-bar {
+    flex: 1;
+    height: 24px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.radar-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 12px;
+    transition: width 1s ease;
+}
+
+.radar-beijing .radar-bar::after {
+    width: 90%;
+    background: linear-gradient(90deg, var(--accent-cyan), #0ea5e9);
+}
+
+.radar-second .radar-bar::after {
+    width: 70%;
+    background: linear-gradient(90deg, var(--accent-purple), #a855f7);
+}
+
+.radar-third .radar-bar::after {
+    width: 50%;
+    background: linear-gradient(90deg, var(--accent-gold), #f59e0b);
+}
+
+.radar-rural .radar-bar::after {
+    width: 30%;
+    background: linear-gradient(90deg, var(--accent-green), #10b981);
+}
+
+/* 对比柱状图 */
+.comparison-bar-chart {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.comparison-group {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+}
+
+.comparison-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-cyan);
+}
+
+.comparison-bar-item {
+    margin-bottom: 12px;
+}
+
+.comparison-label {
+    display: block;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+}
+
+.comparison-bar {
+    height: 24px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.comparison-bar.male {
+    background: linear-gradient(90deg, #2563eb, #3b82f6);
+}
+
+.comparison-bar.female {
+    background: linear-gradient(90deg, #db2777, #ec4899);
+}
+
+.comparison-bar:hover {
+    filter: brightness(1.1);
+    transform: scaleX(1.02);
+    transform-origin: left;
+}
+
+.comparison-value {
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    font-family: var(--font-mono);
+}
+
+/* 图表行样式 (chart-row) */
+.chart-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 14px;
+    padding: 8px 0;
+}
+
+.chart-row .chart-label {
+    min-width: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.chart-row .chart-bar-container {
+    flex: 1;
+    height: 28px;
+    background: var(--bg-secondary);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.chart-row .chart-bar {
+    height: 100%;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    transition: all 0.3s ease;
+}
+
+.chart-row .chart-bar:hover {
+    filter: brightness(1.1);
+    transform: scaleX(1.02);
+    transform-origin: left;
+}
+
+.chart-row .chart-bar.danger {
+    background: linear-gradient(90deg, #dc2626, #ef4444);
+}
+
+.chart-row .chart-bar.warning {
+    background: linear-gradient(90deg, #d97706, #f59e0b);
+}
+
+.chart-row .chart-bar.primary {
+    background: linear-gradient(90deg, #2563eb, #3b82f6);
+}
+
+.chart-row .chart-bar.info {
+    background: linear-gradient(90deg, #0891b2, #0ea5e9);
+}
+
+.chart-row .chart-bar.success {
+    background: linear-gradient(90deg, #059669, #10b981);
+}
+
+.chart-row .chart-value {
+    min-width: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-align: right;
+}
+
+/* 平台对比卡片 */
+.platform-comparison-chart {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.platform-card {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.platform-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 8px 20px rgba(8, 145, 178, 0.15);
+}
+
+.platform-icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.platform-card h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
+.platform-stats {
+    text-align: left;
+}
+
+.platform-stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border-color);
+    font-size: 12px;
+}
+
+.platform-stat-row:last-child {
+    border-bottom: none;
+}
+
+.platform-stat-row span:first-child {
+    color: var(--text-muted);
+}
+
+.platform-stat-row span:last-child {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+}
+
+/* 分隔市场增长图表 */
+.growth-comparison-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.growth-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.growth-label {
+    min-width: 120px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.growth-bar-container {
+    flex: 1;
+    height: 32px;
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+}
+
+.growth-bar {
+    height: 100%;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    transition: all 0.5s ease;
+}
+
+.growth-bar:hover {
+    filter: brightness(1.1);
+}
+
+.growth-value {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    font-family: var(--font-mono);
+}
+
 /* 数据表格 */
 .data-table {
     width: 100%;
