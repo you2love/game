@@ -6,6 +6,8 @@
     <title>玩家分析 - 趋势与深度洞察</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 </head>
 
 <body>
@@ -166,37 +168,7 @@
 
                 <div class="chart-container">
                     <h3>玩家类型分布图</h3>
-                    <div class="pie-chart">
-                        <div class="pie-chart-visual" style="background: conic-gradient(
-                            var(--primary-color) 0deg 54deg,
-                            var(--secondary-color) 54deg 162deg,
-                            var(--accent-color) 162deg 234deg,
-                            var(--warning-color) 234deg 306deg,
-                            var(--gray-color) 306deg 360deg
-                        );"></div>
-                        <div class="pie-chart-legend">
-                            <div class="pie-chart-legend-item">
-                                <span class="pie-chart-legend-color" style="background-color: var(--primary-color);"></span>
-                                <span>核心玩家 (15%)</span>
-                            </div>
-                            <div class="pie-chart-legend-item">
-                                <span class="pie-chart-legend-color" style="background-color: var(--secondary-color);"></span>
-                                <span>休闲玩家 (45%)</span>
-                            </div>
-                            <div class="pie-chart-legend-item">
-                                <span class="pie-chart-legend-color" style="background-color: var(--accent-color);"></span>
-                                <span>社交玩家 (20%)</span>
-                            </div>
-                            <div class="pie-chart-legend-item">
-                                <span class="pie-chart-legend-color" style="background-color: var(--warning-color);"></span>
-                                <span>收集玩家 (12%)</span>
-                            </div>
-                            <div class="pie-chart-legend-item">
-                                <span class="pie-chart-legend-color" style="background-color: var(--gray-color);"></span>
-                                <span>其他 (8%)</span>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="playerTypePieChart" style="width:100%;height:350px;"></div>
                     <p class="chart-caption">休闲玩家占比最高，其次是社交玩家和核心玩家</p>
                 </div>
             </section>
@@ -817,57 +789,7 @@
 
                                 <h3>心理类型分布图</h3>
 
-                                <div class="pie-chart">
-
-                                    <div class="pie-chart-visual" style="background: conic-gradient(
-
-                                        var(--primary-color) 0deg 108deg,
-
-                                        var(--secondary-color) 108deg 198deg,
-
-                                        var(--accent-color) 198deg 270deg,
-
-                                        var(--warning-color) 270deg 360deg
-
-                                    );"></div>
-
-                                    <div class="pie-chart-legend">
-
-                                        <div class="pie-chart-legend-item">
-
-                                            <span class="pie-chart-legend-color" style="background-color: var(--primary-color);"></span>
-
-                                            <span>成就驱动型 (30%)</span>
-
-                                        </div>
-
-                                        <div class="pie-chart-legend-item">
-
-                                            <span class="pie-chart-legend-color" style="background-color: var(--secondary-color);"></span>
-
-                                            <span>社交互动型 (25%)</span>
-
-                                        </div>
-
-                                        <div class="pie-chart-legend-item">
-
-                                            <span class="pie-chart-legend-color" style="background-color: var(--accent-color);"></span>
-
-                                            <span>沉浸体验型 (20%)</span>
-
-                                        </div>
-
-                                        <div class="pie-chart-legend-item">
-
-                                            <span class="pie-chart-legend-color" style="background-color: var(--warning-color);"></span>
-
-                                            <span>休闲娱乐型 (25%)</span>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
+                                <div id="psychologyPieChart" style="width:100%;height:300px;"></div>
 
                                 <p class="chart-caption">成就驱动型和休闲娱乐型玩家占比最高</p>
 
@@ -879,57 +801,11 @@
 
                                 <h3>心理类型-付费意愿对比</h3>
 
-                                <div class="bar-chart">
+                                <div id="psychologyBarChart" style="width:100%;height:300px;"></div>
 
-                                    <div class="bar-chart-item">
+                                <p class="chart-caption">沉浸体验型付费意愿最高，休闲娱乐型付费意愿相对较低</p>
 
-                                        <span class="bar-chart-label">成就驱动型</span>
-
-                                        <div class="bar-chart-bar-container">
-
-                                            <div class="bar-chart-bar" style="width: 85%; background: var(--primary-color);">
-
-                                                <span class="bar-chart-value">付费意愿85%</span>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="bar-chart-item">
-
-                                        <span class="bar-chart-label">社交互动型</span>
-
-                                        <div class="bar-chart-bar-container">
-
-                                            <div class="bar-chart-bar" style="width: 70%; background: var(--secondary-color);">
-
-                                                <span class="bar-chart-value">付费意愿70%</span>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="bar-chart-item">
-
-                                        <span class="bar-chart-label">沉浸体验型</span>
-
-                                        <div class="bar-chart-bar-container">
-
-                                            <div class="bar-chart-bar" style="width: 90%; background: var(--accent-color);">
-
-                                                <span class="bar-chart-value">付费意愿90%</span>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="bar-chart-item">
+                            </div>
 
                                         <span class="bar-chart-label">休闲娱乐型</span>
 
@@ -1262,9 +1138,168 @@
                     </tbody>
                 </table>
             </section>
+
+            <section class="section">
+                <h2 class="section-title"><span class="title-icon">▣</span>玩家群体分布</h2>
+                <div class="charts-row">
+                    <div class="chart-block fade-in" style="flex:1">
+                        <div class="chart-header">
+                            <h3>玩家类型占比</h3>
+                        </div>
+                        <div class="pie-chart-container">
+                            <div class="pie-chart">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="30" fill="none" stroke="#e2e8f0" stroke-width="25"/>
+                                    <circle cx="50" cy="50" r="30" fill="none" stroke="#0891b2" stroke-width="25" stroke-dasharray="75.4 188.5" stroke-dashoffset="0" transform="rotate(-90 50 50)"/>
+                                    <circle cx="50" cy="50" r="30" fill="none" stroke="#7c3aed" stroke-width="25" stroke-dasharray="47.1 188.5" stroke-dashoffset="-75.4" transform="rotate(-90 50 50)"/>
+                                    <circle cx="50" cy="50" r="30" fill="none" stroke="#db2777" stroke-width="25" stroke-dasharray="37.7 188.5" stroke-dashoffset="-122.5" transform="rotate(-90 50 50)"/>
+                                    <circle cx="50" cy="50" r="30" fill="none" stroke="#059669" stroke-width="25" stroke-dasharray="28.3 188.5" stroke-dashoffset="-160.2" transform="rotate(-90 50 50)"/>
+                                </svg>
+                            </div>
+                            <div class="pie-legend">
+                                <div class="legend-item"><span class="legend-color" style="background:#0891b2"></span>休闲玩家 40%</div>
+                                <div class="legend-item"><span class="legend-color" style="background:#7c3aed"></span>社交玩家 25%</div>
+                                <div class="legend-item"><span class="legend-color" style="background:#db2777"></span>核心玩家 20%</div>
+                                <div class="legend-item"><span class="legend-color" style="background:#059669"></span>竞技玩家 15%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-block fade-in fade-in-delay-1" style="flex:1.5">
+                        <div class="chart-header">
+                            <h3>年龄分布</h3>
+                        </div>
+                        <div class="bar-chart">
+                            <div class="bar-item">
+                                <div class="bar" style="height: 30%"><span class="bar-value">18%</span></div>
+                                <span class="bar-label">18以下</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar" style="height: 75%"><span class="bar-value">45%</span></div>
+                                <span class="bar-label">18-25</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar active" style="height: 85%"><span class="bar-value">52%</span></div>
+                                <span class="bar-label">26-35</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar" style="height: 45%"><span class="bar-value">27%</span></div>
+                                <span class="bar-label">36-45</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar" style="height: 25%"><span class="bar-value">15%</span></div>
+                                <span class="bar-label">45+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title"><span class="title-icon">▣</span>玩家行为流程</h2>
+                <div class="chart-block fade-in">
+                    <pre class="mermaid">
+flowchart TB
+    A[新用户] --> B[首次体验]
+    B --> C{是否付费}
+    C -->|是| D[付费用户]
+    C -->|否| E[免费用户]
+    D --> F[持续付费]
+    D --> G[流失]
+    E --> H[转化为付费]
+    E --> I[流失]
+    F --> J[核心玩家]
+    H --> J
+    J --> K[社交分享]
+    K --> L[拉新]
+    L --> A
+    
+    style A fill:#0891b2,color:#fff
+    style J fill:#059669,color:#fff
+    style K fill:#7c3aed,color:#fff
+                    </pre>
+                </div>
+            </section>
         </main>
     </main>
 
     <script src="navigation.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default', flowchart: { useMaxWidth: true } });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var playerTypePieChart = echarts.init(document.getElementById('playerTypePieChart'));
+            var playerTypeOption = {
+                tooltip: { trigger: 'item', formatter: '{b}: {c}%' },
+                legend: { orient: 'vertical', left: 'left', top: 'center' },
+                series: [{
+                    name: '玩家类型',
+                    type: 'pie',
+                    radius: ['45%', '70%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: { borderRadius: 10, borderColor: '#fff', borderWidth: 2 },
+                    label: { show: true, formatter: '{b}\n{c}%' },
+                    emphasis: { label: { show: true, fontSize: 14, fontWeight: 'bold' } },
+                    data: [
+                        { value: 45, name: '休闲玩家', itemStyle: { color: '#2563eb' } },
+                        { value: 20, name: '社交玩家', itemStyle: { color: '#7c3aed' } },
+                        { value: 15, name: '核心玩家', itemStyle: { color: '#0891b2' } },
+                        { value: 12, name: '收集玩家', itemStyle: { color: '#d97706' } },
+                        { value: 8, name: '其他', itemStyle: { color: '#94a3b8' } }
+                    ]
+                }]
+            };
+            playerTypePieChart.setOption(playerTypeOption);
+
+            var psychologyPieChart = echarts.init(document.getElementById('psychologyPieChart'));
+            var psychologyOption = {
+                tooltip: { trigger: 'item', formatter: '{b}: {c}%' },
+                legend: { orient: 'vertical', left: 'left', top: 'center' },
+                series: [{
+                    name: '心理类型',
+                    type: 'pie',
+                    radius: ['45%', '70%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: { borderRadius: 10, borderColor: '#fff', borderWidth: 2 },
+                    label: { show: true, formatter: '{b}\n{c}%' },
+                    emphasis: { label: { show: true, fontSize: 14, fontWeight: 'bold' } },
+                    data: [
+                        { value: 30, name: '成就驱动型', itemStyle: { color: '#0891b2' } },
+                        { value: 25, name: '社交互动型', itemStyle: { color: '#7c3aed' } },
+                        { value: 20, name: '沉浸体验型', itemStyle: { color: '#db2777' } },
+                        { value: 25, name: '休闲娱乐型', itemStyle: { color: '#d97706' } }
+                    ]
+                }]
+            };
+            psychologyPieChart.setOption(psychologyOption);
+
+            var psychologyBarChart = echarts.init(document.getElementById('psychologyBarChart'));
+            var psychologyBarOption = {
+                tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+                grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
+                xAxis: { type: 'value', max: 100, axisLabel: { formatter: '{value}%' } },
+                yAxis: { type: 'category', data: ['休闲娱乐型', '社交互动型', '成就驱动型', '沉浸体验型'] },
+                series: [{
+                    type: 'bar',
+                    data: [
+                        { value: 40, itemStyle: { color: '#d97706' } },
+                        { value: 70, itemStyle: { color: '#7c3aed' } },
+                        { value: 85, itemStyle: { color: '#0891b2' } },
+                        { value: 90, itemStyle: { color: '#db2777' } }
+                    ],
+                    label: { show: true, position: 'right', formatter: '{c}%' },
+                    barWidth: '60%',
+                    itemStyle: { borderRadius: [0, 4, 4, 0] }
+                }]
+            };
+            psychologyBarChart.setOption(psychologyBarOption);
+
+            window.addEventListener('resize', function() {
+                playerTypePieChart.resize();
+                psychologyPieChart.resize();
+                psychologyBarChart.resize();
+            });
+        });
+    </script>
 </body>
 </html>

@@ -6,6 +6,8 @@
     <title>游戏分类 - 趋势与深度洞察</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 </head>
 
 <body>
@@ -192,27 +194,7 @@
 
                 <div class="chart-container">
                     <h3>游戏类型市场份额分布</h3>
-                    <div class="pie-chart">
-                        <div class="pie-chart-visual"></div>
-                        <div class="pie-chart-legend">
-                            <div class="pie-chart-legend-item">
-                                <span class="pie-chart-legend-color" style="background-color: var(--primary-color);"></span>
-                                <span>休闲/卡牌 (30%)</span>
-                            </div>
-                            <div class="pie-chart-legend-item">
-                                <span class="pie-chart-legend-color" style="background-color: var(--secondary-color);"></span>
-                                <span>MOBA (15%)</span>
-                            </div>
-                            <div class="pie-chart-legend-item">
-                                <span class="pie-chart-legend-color" style="background-color: var(--accent-color);"></span>
-                                <span>RPG (12%)</span>
-                            </div>
-                            <div class="pie-chart-legend-item">
-                                <span class="pie-chart-legend-color" style="background-color: var(--warning-color);"></span>
-                                <span>其他 (18%)</span>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="gameTypePieChart" style="width:100%;height:350px;"></div>
                     <p class="chart-caption">移动游戏占75%，其中休闲/卡牌类占比最高</p>
                 </div>
             </section>
@@ -537,9 +519,146 @@
                     <p class="chart-caption">传统类型 + 新技术 = 创新体验</p>
                 </div>
             </section>
+
+            <section class="section">
+                <h2 class="section-title"><span class="title-icon">▣</span>市场规模分布</h2>
+                <div class="charts-row">
+                    <div class="chart-block fade-in" style="flex:1">
+                        <div class="chart-header">
+                            <h3>游戏类型市场份额</h3>
+                            <span class="chart-tag">2026</span>
+                        </div>
+                        <div id="marketSharePieChart" style="width:100%;height:300px;"></div>
+                    </div>
+                    <div class="chart-block fade-in fade-in-delay-1" style="flex:1.5">
+                        <div class="chart-header">
+                            <h3>各类型增长趋势</h3>
+                            <span class="chart-tag">YoY %</span>
+                        </div>
+                        <div id="growthBarChart" style="width:100%;height:300px;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title"><span class="title-icon">▣</span>类型演化</h2>
+                <div class="chart-block fade-in">
+                    <pre class="mermaid">
+flowchart LR
+    A[传统游戏] --> B[类型融合]
+    A --> C[技术驱动]
+    A --> D[平台演变]
+    
+    B --> B1[动作RPG]
+    B --> B2[策略模拟]
+    B --> B3[体育竞技]
+    
+    C --> C1[AI游戏]
+    C --> C2[元宇宙]
+    C --> C3[云游戏]
+    
+    D --> D1[移动端]
+    D --> D2[跨平台]
+    D --> D3[VR/AR]
+    
+    B1 --> E[创新体验]
+    B2 --> E
+    B3 --> E
+    C1 --> E
+    C2 --> E
+    C3 --> E
+    D1 --> E
+    D2 --> E
+    D3 --> E
+    
+    style A fill:#0891b2,color:#fff
+    style E fill:#059669,color:#fff
+                    </pre>
+                </div>
+            </section>
         </main>
     </main>
 
     <script src="navigation.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default', flowchart: { useMaxWidth: true } });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var gameTypePieChart = echarts.init(document.getElementById('gameTypePieChart'));
+            var gameTypeOption = {
+                tooltip: { trigger: 'item', formatter: '{b}: {c}%' },
+                legend: { orient: 'vertical', left: 'left', top: 'center' },
+                series: [{
+                    name: '游戏类型',
+                    type: 'pie',
+                    radius: ['45%', '70%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: { borderRadius: 10, borderColor: '#fff', borderWidth: 2 },
+                    label: { show: true, formatter: '{b}\n{c}%' },
+                    emphasis: { label: { show: true, fontSize: 14, fontWeight: 'bold' } },
+                    data: [
+                        { value: 30, name: '休闲/卡牌', itemStyle: { color: '#2563eb' } },
+                        { value: 15, name: 'MOBA', itemStyle: { color: '#7c3aed' } },
+                        { value: 12, name: 'RPG', itemStyle: { color: '#0891b2' } },
+                        { value: 18, name: '其他', itemStyle: { color: '#d97706' } }
+                    ]
+                }]
+            };
+            gameTypePieChart.setOption(gameTypeOption);
+
+            var marketSharePieChart = echarts.init(document.getElementById('marketSharePieChart'));
+            var marketShareOption = {
+                tooltip: { trigger: 'item', formatter: '{b}: {c}%' },
+                legend: { orient: 'vertical', left: 'left', top: 'center' },
+                series: [{
+                    name: '市场份额',
+                    type: 'pie',
+                    radius: ['45%', '70%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: { borderRadius: 10, borderColor: '#fff', borderWidth: 2 },
+                    label: { show: true, formatter: '{b}\n{c}%' },
+                    emphasis: { label: { show: true, fontSize: 14, fontWeight: 'bold' } },
+                    data: [
+                        { value: 27, name: '休闲/卡牌', itemStyle: { color: '#0891b2' } },
+                        { value: 20, name: 'RPG', itemStyle: { color: '#7c3aed' } },
+                        { value: 15, name: 'MOBA', itemStyle: { color: '#db2777' } },
+                        { value: 15, name: '射击', itemStyle: { color: '#059669' } },
+                        { value: 12, name: '策略', itemStyle: { color: '#d97706' } },
+                        { value: 11, name: '其他', itemStyle: { color: '#2563eb' } }
+                    ]
+                }]
+            };
+            marketSharePieChart.setOption(marketShareOption);
+
+            var growthBarChart = echarts.init(document.getElementById('growthBarChart'));
+            var growthOption = {
+                tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+                grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
+                xAxis: { type: 'value', axisLabel: { formatter: '+{value}%' } },
+                yAxis: { type: 'category', data: ['策略', 'RPG', 'MOBA', '休闲', '射击'] },
+                series: [{
+                    type: 'bar',
+                    data: [
+                        { value: 12, itemStyle: { color: '#d97706' } },
+                        { value: 15, itemStyle: { color: '#0891b2' } },
+                        { value: 18, itemStyle: { color: '#7c3aed' } },
+                        { value: 25, itemStyle: { color: '#2563eb' } },
+                        { value: 32, itemStyle: { color: '#059669' } }
+                    ],
+                    label: { show: true, position: 'right', formatter: '+{c}%' },
+                    barWidth: '60%',
+                    itemStyle: { borderRadius: [0, 4, 4, 0] }
+                }]
+            };
+            growthBarChart.setOption(growthOption);
+
+            window.addEventListener('resize', function() {
+                gameTypePieChart.resize();
+                marketSharePieChart.resize();
+                growthBarChart.resize();
+            });
+        });
+    </script>
 </body>
 </html>

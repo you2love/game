@@ -6,6 +6,8 @@
     <title>社会事件对玩家和游戏的影响 - 展望与深度洞察</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 </head>
 
 <body>
@@ -237,9 +239,111 @@
                     </tbody>
                 </table>
             </section>
+
+            <section class="section">
+                <h2 class="section-title"><span class="title-icon">▣</span>社会影响维度</h2>
+                <div class="charts-row">
+                    <div class="chart-block fade-in" style="flex:1">
+                        <div class="chart-header">
+                            <h3>正面影响占比</h3>
+                        </div>
+                        <div id="impactPieChart" style="width:100%;height:280px;"></div>
+                    </div>
+                    <div class="chart-block fade-in fade-in-delay-1" style="flex:1.5">
+                        <div class="chart-header">
+                            <h3>各维度满意度</h3>
+                        </div>
+                        <div id="satisfactionBarChart" style="width:100%;height:280px;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title"><span class="title-icon">▣</span>影响传导机制</h2>
+                <div class="chart-block fade-in">
+                    <pre class="mermaid">
+flowchart TB
+    A[游戏产业] --> B[经济发展]
+    A --> C[文化建设]
+    A --> D[科技创新]
+    A --> E[社会生活]
+    
+    B --> B1[GDP贡献]
+    B --> B2[就业机会]
+    B --> B3[投资增长]
+    
+    C --> C1[文化输出]
+    C --> C2[IP孵化]
+    C --> C3[创意产业]
+    
+    D --> D1[技术研发]
+    D --> D2[AI应用]
+    D --> D3[云计算]
+    
+    E --> E1[社交娱乐]
+    E --> E2[教育应用]
+    E --> E3[健康生活]
+    
+    style A fill:#0891b2,color:#fff
+                    </pre>
+                </div>
+            </section>
         </main>
     </main>
 
     <script src="navigation.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default', flowchart: { useMaxWidth: true } });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var impactPieChart = echarts.init(document.getElementById('impactPieChart'));
+            var impactPieOption = {
+                tooltip: { trigger: 'item', formatter: '{b}: {c}%' },
+                legend: { orient: 'vertical', left: 'left', top: 'center' },
+                series: [{
+                    name: '影响占比',
+                    type: 'pie',
+                    radius: ['45%', '70%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: { borderRadius: 10, borderColor: '#fff', borderWidth: 2 },
+                    label: { show: true, formatter: '{b}\n{c}%' },
+                    emphasis: { label: { show: true, fontSize: 14, fontWeight: 'bold' } },
+                    data: [
+                        { value: 70, name: '正面影响', itemStyle: { color: '#059669' } },
+                        { value: 30, name: '待改进', itemStyle: { color: '#d97706' } }
+                    ]
+                }]
+            };
+            impactPieChart.setOption(impactPieOption);
+
+            var satisfactionBarChart = echarts.init(document.getElementById('satisfactionBarChart'));
+            var satisfactionOption = {
+                tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+                grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
+                xAxis: { type: 'value', max: 100, axisLabel: { formatter: '{value}%' } },
+                yAxis: { type: 'category', data: ['健康影响', '教育应用', '就业创造', '文化传播', '经济增长'] },
+                series: [{
+                    type: 'bar',
+                    data: [
+                        { value: 45, itemStyle: { color: '#dc2626' } },
+                        { value: 55, itemStyle: { color: '#d97706' } },
+                        { value: 65, itemStyle: { color: '#eab308' } },
+                        { value: 75, itemStyle: { color: '#22c55e' } },
+                        { value: 90, itemStyle: { color: '#059669' } }
+                    ],
+                    label: { show: true, position: 'right', formatter: '{c}%' },
+                    barWidth: '60%',
+                    itemStyle: { borderRadius: [0, 4, 4, 0] }
+                }]
+            };
+            satisfactionBarChart.setOption(satisfactionOption);
+
+            window.addEventListener('resize', function() {
+                impactPieChart.resize();
+                satisfactionBarChart.resize();
+            });
+        });
+    </script>
 </body>
 </html>

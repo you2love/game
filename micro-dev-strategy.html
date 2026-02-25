@@ -6,6 +6,7 @@
     <title>微型游戏开发公司生存策略分析 - 趋势与策略指南</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 </head>
 
 <body>
@@ -584,9 +585,78 @@
                     </tbody>
                 </table>
             </section>
+
+            <section class="section">
+                <h2 class="section-title"><span class="title-icon">▣</span>挑战与策略对应关系</h2>
+                <div class="charts-row">
+                    <div class="chart-block fade-in" style="flex:1">
+                        <div class="chart-header">
+                            <h3>挑战影响程度</h3>
+                        </div>
+                        <div id="challengePieChart" style="width:100%;height:300px;"></div>
+                    </div>
+                    <div class="chart-block fade-in fade-in-delay-1" style="flex:1.5">
+                        <div class="chart-header">
+                            <h3>策略优先级</h3>
+                        </div>
+                        <div id="strategyBarChart" style="width:100%;height:300px;"></div>
+                    </div>
+                </div>
+            </section>
         </main>
     </main>
 
     <script src="navigation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var challengePieChart = echarts.init(document.getElementById('challengePieChart'));
+            var challengeOption = {
+                tooltip: { trigger: 'item', formatter: '{b}: {c}' },
+                legend: { orient: 'vertical', left: 'left', top: 'center' },
+                series: [{
+                    name: '挑战',
+                    type: 'pie',
+                    radius: ['45%', '70%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: { borderRadius: 10, borderColor: '#fff', borderWidth: 2 },
+                    label: { show: true, formatter: '{b}\n{c}' },
+                    emphasis: { label: { show: true, fontSize: 14, fontWeight: 'bold' } },
+                    data: [
+                        { value: '高', name: '资金挑战', itemStyle: { color: '#dc2626' } },
+                        { value: '高', name: '市场挑战', itemStyle: { color: '#f59e0b' } },
+                        { value: '中高', name: '技术挑战', itemStyle: { color: '#eab308' } },
+                        { value: '中', name: '运营挑战', itemStyle: { color: '#22c55e' } }
+                    ]
+                }]
+            };
+            challengePieChart.setOption(challengeOption);
+
+            var strategyBarChart = echarts.init(document.getElementById('strategyBarChart'));
+            var strategyOption = {
+                tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+                grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
+                xAxis: { type: 'value' },
+                yAxis: { type: 'category', data: ['技术聚焦', '合作共生', '敏捷开发', '精确定位'] },
+                series: [{
+                    type: 'bar',
+                    data: [
+                        { value: 75, itemStyle: { color: '#7c3aed' } },
+                        { value: 85, itemStyle: { color: '#0891b2' } },
+                        { value: 90, itemStyle: { color: '#2563eb' } },
+                        { value: 95, itemStyle: { color: '#059669' } }
+                    ],
+                    label: { show: true, position: 'right' },
+                    barWidth: '60%',
+                    itemStyle: { borderRadius: [0, 4, 4, 0] }
+                }]
+            };
+            strategyBarChart.setOption(strategyOption);
+
+            window.addEventListener('resize', function() {
+                challengePieChart.resize();
+                strategyBarChart.resize();
+            });
+        });
+    </script>
 </body>
 </html>

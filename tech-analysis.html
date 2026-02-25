@@ -6,6 +6,8 @@
     <title>技术栈分析 - 技术趋势与深度洞察</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 </head>
 
 <body>
@@ -361,9 +363,105 @@
                     </div>
                 </div>
             </section>
+
+            <section class="section">
+                <h2 class="section-title"><span class="title-icon">▣</span>技术成熟度分布</h2>
+                <div class="charts-row">
+                    <div class="chart-block fade-in" style="flex:2">
+                        <div class="chart-header">
+                            <h3>各技术领域成熟度</h3>
+                        </div>
+                        <div id="techMaturityBarChart" style="width:100%;height:300px;"></div>
+                    </div>
+                    <div class="chart-block fade-in fade-in-delay-1" style="flex:1">
+                        <div class="chart-header">
+                            <h3>技术投资占比</h3>
+                        </div>
+                        <div id="techInvestmentPieChart" style="width:100%;height:300px;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title"><span class="title-icon">▣</span>技术架构演进</h2>
+                <div class="chart-block fade-in">
+                    <pre class="mermaid">
+flowchart TB
+    A[传统架构] --> B[云原生架构]
+    A --> C[边缘计算]
+    B --> D[微服务]
+    C --> D
+    D --> E[容器化部署]
+    D --> F[Serverless]
+    E --> G[弹性扩展]
+    F --> G
+    G --> H[实时更新]
+    H --> I[持续交付]
+    
+    style A fill:#0891b2,color:#fff
+    style I fill:#059669,color:#fff
+                    </pre>
+                </div>
+            </section>
         </main>
     </main>
 
     <script src="navigation.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default', flowchart: { useMaxWidth: true } });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var techMaturityBarChart = echarts.init(document.getElementById('techMaturityBarChart'));
+            var techMaturityOption = {
+                tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+                grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
+                xAxis: { type: 'value', max: 100, axisLabel: { formatter: '{value}%' } },
+                yAxis: { type: 'category', data: ['元宇宙', '区块链', 'VR/AR', 'AI生成', '跨平台', '云游戏'] },
+                series: [{
+                    type: 'bar',
+                    data: [
+                        { value: 35, itemStyle: { color: '#6366f1' } },
+                        { value: 45, itemStyle: { color: '#8b5cf6' } },
+                        { value: 60, itemStyle: { color: '#a855f7' } },
+                        { value: 75, itemStyle: { color: '#d946ef' } },
+                        { value: 88, itemStyle: { color: '#06b6d4' } },
+                        { value: 95, itemStyle: { color: '#0891b2' } }
+                    ],
+                    label: { show: true, position: 'right', formatter: '{c}%' },
+                    barWidth: '60%',
+                    itemStyle: { borderRadius: [0, 4, 4, 0] }
+                }]
+            };
+            techMaturityBarChart.setOption(techMaturityOption);
+
+            var techInvestmentPieChart = echarts.init(document.getElementById('techInvestmentPieChart'));
+            var techInvestmentOption = {
+                tooltip: { trigger: 'item', formatter: '{b}: {c}%' },
+                legend: { orient: 'vertical', left: 'left', top: 'center' },
+                series: [{
+                    name: '技术投资占比',
+                    type: 'pie',
+                    radius: ['45%', '70%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: { borderRadius: 10, borderColor: '#fff', borderWidth: 2 },
+                    label: { show: true, formatter: '{b}\n{c}%' },
+                    emphasis: { label: { show: true, fontSize: 14, fontWeight: 'bold' } },
+                    data: [
+                        { value: 35, name: 'AI', itemStyle: { color: '#0891b2' } },
+                        { value: 25, name: '云游戏', itemStyle: { color: '#7c3aed' } },
+                        { value: 20, name: 'VR/AR', itemStyle: { color: '#db2777' } },
+                        { value: 20, name: '其他', itemStyle: { color: '#059669' } }
+                    ]
+                }]
+            };
+            techInvestmentPieChart.setOption(techInvestmentOption);
+
+            window.addEventListener('resize', function() {
+                techMaturityBarChart.resize();
+                techInvestmentPieChart.resize();
+            });
+        });
+    </script>
 </body>
 </html>

@@ -6,6 +6,8 @@
     <title>国家政策对游戏行业影响分析 - 展望与深度洞察</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 </head>
 
 <body>
@@ -681,8 +683,101 @@
             </div>
             <p>企业应当以积极心态面对政策变化，将合规转化为竞争力，将挑战转化为机遇。通过建立完善的合规体系、提升内容质量、加强技术创新、拓展海外市场，实现可持续发展，为中国游戏产业的繁荣贡献力量。</p>
         </section>
+
+            <section class="section">
+                <h2 class="section-title"><span class="title-icon">▣</span>政策演进历程</h2>
+                <div class="chart-block fade-in">
+                    <pre class="mermaid">
+timeline
+    title 游戏监管政策演进
+    2004-2013 : 萌芽期
+        : 网吧监管
+        : 版号制度建立
+    2014-2018 : 发展期
+        : 手游版号实施
+        : 未成年人保护
+    2019-2021 : 规范期
+        : 版号总量控制
+        : 实名制落实
+    2022-至今 : 成熟期
+        : AI游戏监管
+        : 出海支持政策
+                    </pre>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title"><span class="title-icon">▣</span>政策影响分析</h2>
+                <div class="charts-row">
+                    <div class="chart-block fade-in" style="flex:1">
+                        <div class="chart-header">
+                            <h3>各政策影响程度</h3>
+                        </div>
+                        <div id="policyImpactBarChart" style="width:100%;height:280px;"></div>
+                    </div>
+                    <div class="chart-block fade-in fade-in-delay-1" style="flex:1">
+                        <div class="chart-header">
+                            <h3>企业合规能力</h3>
+                        </div>
+                        <div id="compliancePieChart" style="width:100%;height:280px;"></div>
+                    </div>
+                </div>
+            </section>
         </main>
 
     <script src="navigation.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var policyBarChart = echarts.init(document.getElementById('policyImpactBarChart'));
+            var policyBarOption = {
+                tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+                grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
+                xAxis: { type: 'value', max: 100, axisLabel: { formatter: '{value}%' } },
+                yAxis: { type: 'category', data: ['支付规范', '数据安全', '内容审核', '未成年人', '版号政策'] },
+                series: [{
+                    type: 'bar',
+                    data: [
+                        { value: 40, itemStyle: { color: '#94a3b8' } },
+                        { value: 55, itemStyle: { color: '#f59e0b' } },
+                        { value: 70, itemStyle: { color: '#eab308' } },
+                        { value: 85, itemStyle: { color: '#22c55e' } },
+                        { value: 95, itemStyle: { color: '#0891b2' } }
+                    ],
+                    label: { show: true, position: 'right', formatter: '{c}%' },
+                    barWidth: '60%',
+                    itemStyle: { borderRadius: [0, 4, 4, 0] }
+                }]
+            };
+            policyBarChart.setOption(policyBarOption);
+
+            var compliancePieChart = echarts.init(document.getElementById('compliancePieChart'));
+            var complianceOption = {
+                tooltip: { trigger: 'item', formatter: '{b}: {c}%' },
+                legend: { orient: 'vertical', left: 'left', top: 'center' },
+                series: [{
+                    name: '合规状态',
+                    type: 'pie',
+                    radius: ['45%', '70%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: { borderRadius: 10, borderColor: '#fff', borderWidth: 2 },
+                    label: { show: true, formatter: '{b}\n{c}%' },
+                    emphasis: { label: { show: true, fontSize: 14, fontWeight: 'bold' } },
+                    data: [
+                        { value: 80, name: '已合规', itemStyle: { color: '#059669' } },
+                        { value: 20, name: '整改中', itemStyle: { color: '#d97706' } }
+                    ]
+                }]
+            };
+            compliancePieChart.setOption(complianceOption);
+
+            window.addEventListener('resize', function() {
+                policyBarChart.resize();
+                compliancePieChart.resize();
+            });
+        });
+    </script>
 </body>
 </html>
