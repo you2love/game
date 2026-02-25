@@ -2248,6 +2248,162 @@ table.table td strong {
     font-weight: 600;
 }
 
+/* policy-impact.html 表格样式 */
+table.policy-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+table.policy-table th {
+    background: linear-gradient(135deg, rgba(8, 145, 178, 0.12), rgba(124, 58, 237, 0.08));
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--accent-cyan);
+    font-family: var(--font-mono);
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 2px solid rgba(8, 145, 178, 0.2);
+    white-space: nowrap;
+}
+
+table.policy-table td {
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+    vertical-align: top;
+    line-height: 1.6;
+}
+
+table.policy-table tbody tr {
+    transition: all 0.2s ease;
+}
+
+table.policy-table tbody tr:nth-child(even) {
+    background: rgba(8, 145, 178, 0.02);
+}
+
+table.policy-table tbody tr:hover {
+    background: linear-gradient(90deg, rgba(8, 145, 178, 0.08), rgba(124, 58, 237, 0.05));
+}
+
+table.policy-table tbody tr:hover td {
+    color: var(--text-primary);
+}
+
+table.policy-table td:first-child {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+table.policy-table td strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+table.policy-table td:only-child {
+    padding: 0;
+}
+
+table.policy-table td table {
+    margin: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+table.policy-table td table tr {
+    background: transparent;
+}
+
+table.policy-table td table tr:hover {
+    background: transparent;
+}
+
+table.policy-table td table td {
+    padding: 8px 12px;
+    font-size: 12px;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+table.policy-table td table tr:last-child td {
+    border-bottom: none;
+}
+
+table.policy-table td table td:first-child {
+    width: 100px;
+    white-space: nowrap;
+}
+
+/* policy-impact.html 区块标题样式 */
+.policy-overview > h2,
+.policy-evolution > h2,
+.case-studies > h2,
+.international-comparison > h2,
+.economic-impact > h2,
+.regulatory-ecosystem > h2,
+.policy-analysis > h2,
+.policy-trends > h2,
+.future-outlook > h2,
+.conclusion > h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--accent-cyan);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.policy-overview > h2::before,
+.policy-evolution > h2::before,
+.case-studies > h2::before,
+.international-comparison > h2::before,
+.economic-impact > h2::before,
+.regulatory-ecosystem > h2::before,
+.policy-analysis > h2::before,
+.policy-trends > h2::before,
+.future-outlook > h2::before,
+.conclusion > h2::before {
+    content: '◆';
+    font-size: 12px;
+    color: var(--accent-cyan);
+}
+
+.policy-overview > h2::after,
+.policy-evolution > h2::after,
+.case-studies > h2::after,
+.international-comparison > h2::after,
+.economic-impact > h2::after,
+.regulatory-ecosystem > h2::after,
+.policy-analysis > h2::after,
+.policy-trends > h2::after,
+.future-outlook > h2::after,
+.conclusion > h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+    border-radius: 2px;
+}
+
 /* tech-analysis.html 区块标题样式 */
 .tech-analysis-section {
     margin-bottom: 24px;
