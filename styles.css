@@ -94,8 +94,8 @@ a:hover {
 
 /* 侧边导航 */
 .sidebar {
-    width: 180px;
-    min-width: 180px;
+    width: 200px;
+    min-width: 200px;
     background: var(--bg-card);
     border-right: 1px solid var(--border-color);
     position: fixed;
@@ -107,16 +107,16 @@ a:hover {
 }
 
 .sidebar::-webkit-scrollbar {
-    width: 3px;
+    width: 4px;
 }
 
 .sidebar::-webkit-scrollbar-thumb {
     background: var(--accent-cyan);
-    border-radius: 2px;
+    border-radius: 3px;
 }
 
 .sidebar-header {
-    padding: 16px;
+    padding: 20px;
     border-bottom: 1px solid var(--border-color);
     display: flex;
     align-items: center;
@@ -168,33 +168,33 @@ a:hover {
 
 .nav-tree {
     list-style: none;
-    padding: 8px 0;
+    padding: 12px 0;
 }
 
 .nav-tree li {
-    margin: 1px 0;
+    margin: 2px 0;
 }
 
 .nav-tree a {
     display: block;
-    padding: 10px 14px;
+    padding: 12px 16px;
     color: var(--text-secondary);
-    font-size: 13px;
+    font-size: 14px;
     transition: all 0.2s;
-    border-left: 2px solid transparent;
+    border-left: 3px solid transparent;
 }
 
 .nav-tree a:hover {
     background: var(--bg-glass-hover);
     color: var(--accent-cyan);
-    padding-left: 24px;
+    padding-left: 20px;
 }
 
 .nav-tree li.active > a {
     background: rgba(0, 245, 255, 0.08);
     color: var(--accent-cyan);
     border-left-color: var(--accent-cyan);
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .nav-category-toggle {
@@ -202,11 +202,14 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 16px;
 }
 
 .nav-category-toggle::after {
     content: '▼';
-    font-size: 9px;
+    font-size: 10px;
     transition: transform 0.3s;
 }
 
@@ -221,19 +224,19 @@ a:hover {
 }
 
 .nav-submenu.expanded {
-    max-height: 400px;
+    max-height: 500px;
 }
 
 .nav-submenu li a {
-    padding-left: 20px;
-    font-size: 11px;
+    padding-left: 28px;
+    font-size: 13px;
 }
 
 /* 主内容区 */
 .main-content {
     flex: 1;
     min-width: 0;
-    margin-left: 180px;
+    margin-left: 200px;
     padding: 20px 28px;
     background: transparent;
 }
