@@ -239,6 +239,8 @@ a:hover {
     margin-left: 200px;
     padding: 20px 28px;
     background: transparent;
+    max-width: calc(100vw - 200px);
+    overflow-x: hidden;
 }
 
 .main-header {
@@ -712,6 +714,7 @@ a:hover {
     grid-template-columns: 1fr 1.3fr;
     gap: 16px;
     margin-bottom: 20px;
+    overflow-x: hidden;
 }
 
 .chart-block {
@@ -2407,6 +2410,7 @@ table.policy-table td table td:first-child {
 /* tech-analysis.html 区块标题样式 */
 .tech-analysis-section {
     margin-bottom: 24px;
+    overflow-x: hidden;
 }
 
 .tech-analysis-section > h2 {
