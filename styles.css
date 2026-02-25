@@ -2411,6 +2411,98 @@ table.policy-table td table td:first-child {
     color: var(--text-muted);
 }
 
+/* policy-impact.html 核心要点样式 */
+.key-takeaways {
+    background: linear-gradient(135deg, rgba(8, 145, 178, 0.08), rgba(124, 58, 237, 0.05));
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--accent-cyan);
+}
+
+.key-takeaways h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--accent-cyan);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.key-takeaways h3::before {
+    content: '◆';
+    font-size: 12px;
+    color: var(--accent-cyan);
+}
+
+.key-takeaways ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.key-takeaways li {
+    padding: 16px 20px;
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.key-takeaways li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-cyan);
+    font-size: 12px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.key-takeaways li:last-child {
+    margin-bottom: 0;
+}
+
+.key-takeaways li:hover {
+    border-color: rgba(8, 145, 178, 0.3);
+    box-shadow: 0 4px 12px rgba(8, 145, 178, 0.1);
+    transform: translateX(4px);
+    color: var(--text-primary);
+}
+
+.key-takeaways li:hover::before {
+    opacity: 1;
+    left: 12px;
+}
+
+.key-takeaways li strong {
+    color: var(--accent-cyan);
+    font-weight: 600;
+}
+
+/* policy-impact.html 总结段落样式 */
+.conclusion > p {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
 /* tech-analysis.html 区块标题样式 */
 .tech-analysis-section {
     margin-bottom: 24px;
