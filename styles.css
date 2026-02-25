@@ -303,6 +303,70 @@ a:hover {
     margin-bottom: 16px;
 }
 
+/* player-audience.html 区块样式 */
+.audience-analysis > h2,
+.demographic-analysis > h2,
+.behavioral-insights > h2,
+.income-segmentation > h2,
+.regional-comparison > h2,
+.gender-analysis > h2,
+.device-platform-analysis > h2,
+.psychological-profiles > h2,
+.market-insights > h2,
+.time-segmentation > h2,
+.target-strategies > h2,
+.future-outlook > h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--accent-cyan);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.audience-analysis > h2::before,
+.demographic-analysis > h2::before,
+.behavioral-insights > h2::before,
+.income-segmentation > h2::before,
+.regional-comparison > h2::before,
+.gender-analysis > h2::before,
+.device-platform-analysis > h2::before,
+.psychological-profiles > h2::before,
+.market-insights > h2::before,
+.time-segmentation > h2::before,
+.target-strategies > h2::before,
+.future-outlook > h2::before {
+    content: '◆';
+    font-size: 12px;
+    color: var(--accent-cyan);
+}
+
+.audience-analysis > h2::after,
+.demographic-analysis > h2::after,
+.behavioral-insights > h2::after,
+.income-segmentation > h2::after,
+.regional-comparison > h2::after,
+.gender-analysis > h2::after,
+.device-platform-analysis > h2::after,
+.psychological-profiles > h2::after,
+.market-insights > h2::after,
+.time-segmentation > h2::after,
+.target-strategies > h2::after,
+.future-outlook > h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+    border-radius: 2px;
+}
+
 .section-title {
     font-size: 16px;
     font-weight: 600;
@@ -1984,6 +2048,94 @@ table.funding-table td:first-child,
 table.tech-table td:first-child,
 table.marketing-table td:first-child,
 table.advice-table td:first-child {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* player-audience.html 专用表格样式 */
+table.heatmap-table,
+table.technology-impact-table,
+table.time-table,
+table.strategy-recommendation-table,
+table.future-trends-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+table.heatmap-table th,
+table.technology-impact-table th,
+table.time-table th,
+table.strategy-recommendation-table th,
+table.future-trends-table th {
+    background: linear-gradient(135deg, rgba(8, 145, 178, 0.12), rgba(124, 58, 237, 0.08));
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--accent-cyan);
+    font-family: var(--font-mono);
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 2px solid rgba(8, 145, 178, 0.2);
+    white-space: nowrap;
+}
+
+table.heatmap-table td,
+table.technology-impact-table td,
+table.time-table td,
+table.strategy-recommendation-table td,
+table.future-trends-table td {
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+
+table.heatmap-table tbody tr,
+table.technology-impact-table tbody tr,
+table.time-table tbody tr,
+table.strategy-recommendation-table tbody tr,
+table.future-trends-table tbody tr {
+    transition: all 0.2s ease;
+}
+
+table.heatmap-table tbody tr:nth-child(even),
+table.technology-impact-table tbody tr:nth-child(even),
+table.time-table tbody tr:nth-child(even),
+table.strategy-recommendation-table tbody tr:nth-child(even),
+table.future-trends-table tbody tr:nth-child(even) {
+    background: rgba(8, 145, 178, 0.02);
+}
+
+table.heatmap-table tbody tr:hover,
+table.technology-impact-table tbody tr:hover,
+table.time-table tbody tr:hover,
+table.strategy-recommendation-table tbody tr:hover,
+table.future-trends-table tbody tr:hover {
+    background: linear-gradient(90deg, rgba(8, 145, 178, 0.08), rgba(124, 58, 237, 0.05));
+}
+
+table.heatmap-table tbody tr:hover td,
+table.technology-impact-table tbody tr:hover td,
+table.time-table tbody tr:hover td,
+table.strategy-recommendation-table tbody tr:hover td,
+table.future-trends-table tbody tr:hover td {
+    color: var(--text-primary);
+}
+
+table.heatmap-table td:first-child,
+table.technology-impact-table td:first-child,
+table.time-table td:first-child,
+table.strategy-recommendation-table td:first-child,
+table.future-trends-table td:first-child {
     font-weight: 600;
     color: var(--text-primary);
 }
