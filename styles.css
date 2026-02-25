@@ -437,6 +437,103 @@ a:hover {
     height: 100%;
 }
 
+/* 公司信息网格 */
+.company-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.info-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent-cyan);
+    transition: all 0.3s ease;
+}
+
+.info-item:hover {
+    border-color: rgba(8, 145, 178, 0.3);
+    box-shadow: 0 4px 12px rgba(8, 145, 178, 0.15);
+    transform: translateY(-2px);
+}
+
+.info-item:hover::before {
+    width: 6px;
+    background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple));
+}
+
+.info-item h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.info-item h3::before {
+    content: '▸';
+    color: var(--accent-cyan);
+    font-size: 12px;
+}
+
+.info-item p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.info-item.positive {
+    border-left: none;
+}
+
+.info-item.positive::before {
+    background: var(--accent-green);
+}
+
+.info-item.positive:hover::before {
+    background: linear-gradient(180deg, var(--accent-green), #10b981);
+}
+
+.info-item.positive h3::before {
+    color: var(--accent-green);
+}
+
+.info-item.negative {
+    border-left: none;
+}
+
+.info-item.negative::before {
+    background: var(--accent-gold);
+}
+
+.info-item.negative:hover::before {
+    background: linear-gradient(180deg, var(--accent-gold), #f59e0b);
+}
+
+.info-item.negative h3::before {
+    color: var(--accent-gold);
+}
+
 /* 图表区域 */
 .charts-row {
     display: grid;
