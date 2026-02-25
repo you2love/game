@@ -2414,10 +2414,20 @@ table.policy-table td table td:first-child {
 
 /* micro-dev-strategy.html 成功案例样式 */
 .success-cases {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.success-cases > h2 {
+    margin-bottom: 8px;
+}
+
+.success-cases > .case-study-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
-    margin-bottom: 24px;
 }
 
 .success-cases .case-study {
