@@ -336,40 +336,7 @@
 
                 <div class="chart-container">
                     <h3>地域-消费能力对比图</h3>
-                    <div class="bar-chart">
-                        <div class="bar-chart-item">
-                            <span class="bar-chart-label">一线城市</span>
-                            <div class="bar-chart-bar-container">
-                                <div class="bar-chart-bar" style="width: 100%; background: var(--primary-color);">
-                                    <span class="bar-chart-value">ARPU ¥300+</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bar-chart-item">
-                            <span class="bar-chart-label">二线城市</span>
-                            <div class="bar-chart-bar-container">
-                                <div class="bar-chart-bar" style="width: 75%; background: var(--secondary-color);">
-                                    <span class="bar-chart-value">ARPU ¥200-300</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bar-chart-item">
-                            <span class="bar-chart-label">三四线城市</span>
-                            <div class="bar-chart-bar-container">
-                                <div class="bar-chart-bar" style="width: 50%; background: var(--accent-color);">
-                                    <span class="bar-chart-value">ARPU ¥100-200</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bar-chart-item">
-                            <span class="bar-chart-label">农村地区</span>
-                            <div class="bar-chart-bar-container">
-                                <div class="bar-chart-bar" style="width: 25%; background: var(--warning-color);">
-                                    <span class="bar-chart-value">ARPU &lt;¥100</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="regionConsumeChart" style="width:100%;height:300px;"></div>
                     <p class="chart-caption">一线城市消费能力最高，依次递减</p>
                 </div>
             </section>
@@ -1294,10 +1261,63 @@ flowchart TB
             };
             psychologyBarChart.setOption(psychologyBarOption);
 
+            var regionConsumeChart = echarts.init(document.getElementById('regionConsumeChart'));
+            var regionConsumeOption = {
+                tooltip: { 
+                    trigger: 'axis', 
+                    axisPointer: { type: 'shadow' },
+                    formatter: function(params) {
+                        return params[0].name + '<br/>ARPU: ' + params[0].value + '元';
+                    }
+                },
+                grid: { left: '3%', right: '15%', bottom: '3%', containLabel: true },
+                xAxis: { 
+                    type: 'value',
+                    axisLabel: { formatter: '{value} 元' }
+                },
+                yAxis: { 
+                    type: 'category', 
+                    data: ['农村地区', '三四线城市', '二线城市', '一线城市'],
+                    axisLabel: { fontSize: 13, fontWeight: 500 }
+                },
+                series: [{
+                    type: 'bar',
+                    data: [
+                        { value: 80, itemStyle: { color: '#059669' } },
+                        { value: 150, itemStyle: { color: '#d97706' } },
+                        { value: 250, itemStyle: { color: '#7c3aed' } },
+                        { value: 350, itemStyle: { color: '#0891b2' } }
+                    ],
+                    label: { 
+                        show: true, 
+                        position: 'right',
+                        formatter: '¥{c}',
+                        fontSize: 13,
+                        fontWeight: 600,
+                        color: '#1e293b'
+                    },
+                    barWidth: '50%',
+                    itemStyle: { 
+                        borderRadius: [0, 20, 20, 0],
+                        shadowColor: 'rgba(0,0,0,0.2)',
+                        shadowBlur: 10
+                    },
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 20,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0,0,0,0.3)'
+                        }
+                    }
+                }]
+            };
+            regionConsumeChart.setOption(regionConsumeOption);
+
             window.addEventListener('resize', function() {
                 playerTypePieChart.resize();
                 psychologyPieChart.resize();
                 psychologyBarChart.resize();
+                regionConsumeChart.resize();
             });
         });
     </script>
