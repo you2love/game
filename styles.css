@@ -2160,6 +2160,145 @@ table.future-trends-table td:first-child {
 .trend-up { color: var(--accent-green); font-weight: 600; font-family: var(--font-mono); }
 .trend-down { color: var(--accent-red); font-weight: 600; font-family: var(--font-mono); }
 
+/* tech-analysis.html 表格样式 */
+table.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+table.table th {
+    background: linear-gradient(135deg, rgba(8, 145, 178, 0.12), rgba(124, 58, 237, 0.08));
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--accent-cyan);
+    font-family: var(--font-mono);
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 2px solid rgba(8, 145, 178, 0.2);
+    white-space: nowrap;
+}
+
+table.table td {
+    padding: 14px 16px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+    vertical-align: top;
+}
+
+table.table tbody tr {
+    transition: all 0.2s ease;
+}
+
+table.table tbody tr:nth-child(even) {
+    background: rgba(8, 145, 178, 0.02);
+}
+
+table.table tbody tr:hover {
+    background: linear-gradient(90deg, rgba(8, 145, 178, 0.08), rgba(124, 58, 237, 0.05));
+}
+
+table.table tbody tr:hover td {
+    color: var(--text-primary);
+}
+
+table.table td:first-child {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+table.table td ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+table.table td li {
+    margin-bottom: 6px;
+    font-size: 12px;
+    line-height: 1.5;
+    padding-left: 14px;
+    position: relative;
+}
+
+table.table td li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent-cyan);
+    font-size: 10px;
+}
+
+table.table td li:last-child {
+    margin-bottom: 0;
+}
+
+table.table td strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* tech-analysis.html 区块标题样式 */
+.tech-analysis-section {
+    margin-bottom: 24px;
+}
+
+.tech-analysis-section > h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--accent-cyan);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.tech-analysis-section > h2::before {
+    content: '◆';
+    font-size: 12px;
+    color: var(--accent-cyan);
+}
+
+.tech-analysis-section > h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+    border-radius: 2px;
+}
+
+/* 区块内的卡片 */
+.tech-analysis-section .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.tech-analysis-section .card-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
 /* 热力图 */
 .heatmap-grid {
     background: var(--bg-card);
