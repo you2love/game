@@ -2357,6 +2357,61 @@ table.policy-table td table td:first-child {
     margin-bottom: 24px;
 }
 
+/* micro-dev-strategy.html 区块标题样式 */
+.overview > h2,
+.challenges > h2,
+.survival-strategies > h2,
+.success-cases > h2,
+.funding-management > h2,
+.technology-choice > h2,
+.marketing-positioning > h2,
+.development-advice > h2,
+.future-outlook > h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--accent-cyan);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.overview > h2::before,
+.challenges > h2::before,
+.survival-strategies > h2::before,
+.success-cases > h2::before,
+.funding-management > h2::before,
+.technology-choice > h2::before,
+.marketing-positioning > h2::before,
+.development-advice > h2::before,
+.future-outlook > h2::before {
+    content: '◆';
+    font-size: 12px;
+    color: var(--accent-cyan);
+}
+
+.overview > h2::after,
+.challenges > h2::after,
+.survival-strategies > h2::after,
+.success-cases > h2::after,
+.funding-management > h2::after,
+.technology-choice > h2::after,
+.marketing-positioning > h2::after,
+.development-advice > h2::after,
+.future-outlook > h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+    border-radius: 2px;
+}
+
 /* micro-dev-strategy.html 成功案例样式 */
 .success-cases {
     display: grid;
